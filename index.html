@@ -1,36 +1,35 @@
 <!doctype html>
 <html lang="en"  >
 <head>
-   <meta charset="utf-8"> 
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  <title>
-    Hello World
-  </title>
-  <style>
-  h1{
-    Color:Red;
-  }
-  p {
-    Color:Blue;
-    font-style: normal;
-    font-family: sans-serif;
-    font-weight: bold;
-  }
-  </style>
 
+  <title>
+    Reddit Top Post
+  </title>
 </head>
 <body>
-  
-
-  <nav class="navbar navbar-default">
-  
-  
-  
-      </body
->
+  <script>
+    var count = 0;
+    setInterval(function () {
+      $.ajax({
+        url: 'http://www.reddit.com/.json',
+        dataType: 'json'
+      })
+      .done(function (data) {
+        const post = data.data.children[count].data;
+        const url = post.preview.images[0].resolutions[0].url;
+        const width = post.preview.images[0].resolutions[0].width;
+        const height = post.preview.images[0].resolutions[0].height;
+        $('body').append(`<img src="${url}" width="${width}" height="${height}"</img>`);
+        $('body').append('<p>' + data.data.children[count].data.title + '</p>')
+        count++;
+      })
+    }, 500)
+  </script>
+</body>
 </html>
