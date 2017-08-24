@@ -33,17 +33,26 @@
       color: #red;
     }
 
-    .nav-pills.navbar-brand>li>a:hover;
+    .nav-pills.navbar-brand>li>a:hover,
     .nav-pills.navbar-brand>li>a:focus {
       background-color: red;
     }
     .nav-pills.nabar-nav>.active>a,
-    .nav-pills.nabar-nav>.active>a:hover;
+    .nav-pills.nabar-nav>.active>a:hover,
     .nav-pills.nabar-nav>.active>a:focus {
       color:red;
       background-color:blue;
 
     }
+    .nav-pills.nabar-toggle {
+
+      border-color: #fff;
+    }
+    .nav-pills.nabar-toggle:hover,
+    .nav-pills.nabar-toggle:focus {
+      background-color: #orange;
+    }
+
 
     /* Set black background color, white text and some padding */
     footer {
@@ -68,8 +77,8 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <h4>John's Blog</h4>
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Home</a></li>
+      <ul class="nav nav-pills nav-stacked" role="navigation">
+        <li><a href="#section1">Home</a></li>
         <li><a href="#section2">Friends</a></li>
         <li><a href="#section3">Family</a></li>
         <li><a href="#section3">Photos</a></li>
