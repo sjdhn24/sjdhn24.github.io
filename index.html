@@ -7,15 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
-
-function menuChange() {
-
-document.getElementById('friend').class.setAttribute("value", "active")
-
-};
-
-</script>
 
 
 
@@ -28,6 +19,30 @@ document.getElementById('friend').class.setAttribute("value", "active")
     .sidenav {
       background-color: #f1f1f1;
       height: 100%;
+    }
+
+
+
+
+
+    .sidenav.navbar-brand:hover,
+    .sidenav.navbar-brand:focus {
+      color: #fff;
+    }
+    .sidenav.nabar-nav>li>a{
+      color: #fff;
+    }
+
+    .sidenav.navbar-brand>li>a:hover;
+    .sidenav.navbar-brand>li>a:focus {
+      background-color: red;
+    }
+    .sidenav.nabar-nav>.active>a,
+    .sidenav.nabar-nav>.active>a:hover;
+    .sidenav.nabar-nav>.active>a:focus {
+      color:red;
+      background-color:blue;
+
     }
 
     /* Set black background color, white text and some padding */
@@ -55,7 +70,7 @@ document.getElementById('friend').class.setAttribute("value", "active")
       <h4>John's Blog</h4>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="#section1">Home</a></li>
-        <li class="" id="friend" onclick="menuChange";><a href="#section2">Friends</a></li>
+        <li><a href="#section2">Friends</a></li>
         <li><a href="#section3">Family</a></li>
         <li><a href="#section3">Photos</a></li>
       </ul><br>
