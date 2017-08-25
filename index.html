@@ -44,10 +44,10 @@
   </style>
 </head>
 <body>
-<div>
+<form>
   <input type ="text" id="todo" width = "50" value= "">
-  <button id="Click" onclick="AddToList">Click</button>
-
+  <button id="Click" onclick="AddToList">Click ME</button>
+</form>
 <p id="list"></p>
 
 </div>
@@ -55,7 +55,7 @@
 <script>
 
 function AddToList() {
- document.getElementById("list").innerHtml "hello";
+ document.getElementById("list").innerHtml= "hello";
 
 }
 </script>
