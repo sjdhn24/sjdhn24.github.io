@@ -44,20 +44,28 @@
   </style>
 </head>
 <body>
-<form>
-  <input type ="text" id="todo" width = "50" value= "">
-  <button id="Click" onclick="AddToList">Click ME</button>
-</form>
+<DIV id="div1">
+
+  <input type ="text" id="todo" width = "50" placeHolder = "ToItem..">
+  <input type="button" Id="btn" Value="Add" onclick="fInsertList()">
+  <ul id="mUl">
+    <li>My To List</li>
+  </ul>
+</div>
 <p id="list"></p>
 
 </div>
 
 <script>
 
-function AddToList() {
- document.getElementById("list").innerHtml= "hello";
-
+function fInsertList() {
+var l = document.createElement("li");
+var Myvalue = document.getElementById("todo").value;
+var t= documen.tCreateTextMode("Myvalue");
+l.appendChild(t);
 }
+
+
 </script>
 
 </body>
