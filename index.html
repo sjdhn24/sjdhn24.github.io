@@ -146,11 +146,14 @@ for (i = 0; i < myNodelist.length; i++) {
 var todoData = {
   todoValues: []
 }
+var todata []
 
 function fInsertList() {
   var l = document.createElement("li");
   var Myvalue = document.getElementById("todo").value;
-  todoData.todoValues.push(Myvalue)
+
+  document.setCookie(todata.push(Myvalue))
+  
   document.cookie = "todoData=" + Myvalue
   var t = document.createTextNode(Myvalue)
   l.appendChild(t);
@@ -171,7 +174,7 @@ function fInsertList() {
   }
   var n= document.getElementById('todo')
   n.value=""
-  n.focus()
+   n.focus()
 }
 
 var list = document.querySelector('ul');
