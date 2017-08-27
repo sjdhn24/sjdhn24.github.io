@@ -152,7 +152,7 @@ function fInsertList() {
   var l = document.createElement("li");
   var Myvalue = document.getElementById("todo").value;
 
-  document.Cookie(todata.push(Myvalue))
+  document.Cookie = todata.push(Myvalue)
 
   document.cookie = "todoData=" + Myvalue
   var t = document.createTextNode(Myvalue)
