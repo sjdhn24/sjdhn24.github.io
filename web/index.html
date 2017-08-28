@@ -235,13 +235,14 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 
-var list = document.querySelector('SPAN');
+var list = document.querySelector(".shut");
+
 list.addEventListener('click', function(ev) {
   if (ev.target.tagname === 'SPAN') {
     var div = this.parentElement;
     div.style.display = "none";
     //var ltext = "Listtext" + i
-    //cookie.remove(ltext)  
+    //cookie.remove(ltext)
   }
 }, false);
 
