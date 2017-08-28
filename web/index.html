@@ -188,10 +188,13 @@ function fInsertList() {
 
   //cookie.set(ltext,Myvalue,30)
 
-document.cookie(ltext,Myvalue,30)
 
 
 
+
+cookie.set(ltext, Myvalue, {
+   expires: 7, // expires in one week
+});
 
 
   for (i = 0; i < close.length; i++) {
