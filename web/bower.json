@@ -1,0 +1,20 @@
+{
+  "name": "sjdhn24.github.io",
+  "description": "My first website",
+  "main": "index.js",
+  "authors": [
+    "sjdhn24 <sjdhn24@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/sjdhn24/sjdhn24.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cookie": "^1.2.2"
+  }
+}
