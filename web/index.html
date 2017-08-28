@@ -132,20 +132,14 @@ ul li:nth-child(odd) {
 <script>
 var count = 1
 function checkCookie() {
-
-
    for (i=1;i<7;i++) {
-
     var user = cookie.get("Listtext" + i);
-
       var l = document.createElement("li");
-
      var t = document.createTextNode(user)
      l.appendChild(t);
      var ulNode = document.getElementById("mUl");
      ulNode.appendChild(l);
      var shut = document.getElementsByClassName("shut");
-
      var span = document.createElement("SPAN");
      var txt = document.createTextNode("\u00D7");
      span.className = "shut";
@@ -153,14 +147,8 @@ function checkCookie() {
      l.appendChild(span);
     //  alert("Welcome again " + user);
      count = count + 1
-
   }
-
 }
-
-
-
-
 
 
 // Create a "close" button and append it to each list item
@@ -177,9 +165,6 @@ function checkCookie() {
   //myNodelist[i].appendChild(span);
 //}
 //}
-
-
-
 function fInsertList() {
   var l = document.createElement("li");
   var Myvalue = document.getElementById("todo").value;
@@ -188,28 +173,23 @@ function fInsertList() {
   var ulNode = document.getElementById("mUl");
   ulNode.appendChild(l);
   var shut = document.getElementsByClassName("shut");
-
   var span = document.createElement("SPAN")
   var txt = document.createTextNode("\u00D7");
   span.className = "shut";
   span.appendChild(txt);
   l.appendChild(span);
-
-var ltext = "Listtext" + count.toString()
+ var ltext = "Listtext" + count.toString()
 //cookie.set(ltext,Myvalue,30)
-
   cookie.set(ltext, Myvalue, {    expires: 7 });
 
-
   for (i = 0; i < shut.length; i++) {
-    shut[i].onclick = function() {
+     shut[i].onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
       var ltext = "Listtext" + i
       cookie.remove(ltext)
     }
   }
-
   var n= document.getElementById('todo')
   n.value=""
    n.focus()
