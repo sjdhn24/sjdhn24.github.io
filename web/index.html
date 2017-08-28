@@ -144,11 +144,15 @@ function checkCookie() {
      l.appendChild(t);
      var ulNode = document.getElementById("mUl");
      ulNode.appendChild(l);
+
+
     //  alert("Welcome again " + user);
      count = count + 1
     }
   }
+  closebutton;
 }
+
 
 alert("Welcome again " + user);
 
@@ -156,6 +160,7 @@ alert("Welcome again " + user);
 
 
 // Create a "close" button and append it to each list item
+function closebutton () {
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 var close = document.getElementsByClassName("shut");
@@ -167,6 +172,8 @@ for (i = 0; i < myNodelist.length; i++) {
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
 }
+}
+
 
 var todoData = {
   todoValues: []
