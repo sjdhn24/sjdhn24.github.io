@@ -144,6 +144,7 @@ function checkCookie() {
      l.appendChild(t);
      var ulNode = document.getElementById("mUl");
      ulNode.appendChild(l);
+     var shut = document.getElementsByClassName("shut");
 
      var span = document.createElement("SPAN");
      var txt = document.createTextNode("\u00D7");
@@ -180,10 +181,6 @@ function checkCookie() {
 //}
 
 
-var todoData = {
-  todoValues: []
-}
-var todata =[]
 
 function fInsertList() {
   var l = document.createElement("li");
@@ -192,6 +189,8 @@ function fInsertList() {
   l.appendChild(t);
   var ulNode = document.getElementById("mUl");
   ulNode.appendChild(l);
+  var shut = document.getElementsByClassName("shut");
+
   var span = document.createElement("SPAN")
   var txt = document.createTextNode("\u00D7");
   span.className = "shut";
@@ -232,6 +231,6 @@ list.addEventListener('click', function(ev) {
 
 
 </script>
-  
+
 </body>
 </html>
