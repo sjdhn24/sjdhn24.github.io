@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en"  >
 <head>
   <title>Bootstrap Example</title>
@@ -199,6 +199,7 @@ function fInsertList() {
   l.appendChild(span);
 
 
+
    var ltext = "Listtext" + count.toString()
 
 
@@ -233,6 +234,18 @@ list.addEventListener('click', function(ev) {
     ev.target.classList.toggle('checked');
   }
 }, false);
+
+var list = document.querySelector('SPAN');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagname === 'SPAN') {
+    var div = this.parentElement;
+    div.style.display = "none";
+    //var ltext = "Listtext" + i
+    //cookie.remove(ltext)  
+  }
+}, false);
+
+
 
   function Goto() {
     res.url("page2.html")
