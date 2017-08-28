@@ -4,6 +4,8 @@ const db = new sqlite3.Database('abc')
 
 const app = express()
 
+app.set('port', (process.env.PORT || 5000));
+
 app.use('/static/', express.static('web'))
 
 app.get('/', function(req, res) {
@@ -20,6 +22,6 @@ app.get('/db', function (req, res) {
   })
 })
 
-app.listen(5000, function () {
+app.listen(app.get('port'), function () {
   console.log('Server is running yoyo buyakasha')
 })
