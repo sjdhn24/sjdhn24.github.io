@@ -131,6 +131,8 @@ ul li:nth-child(odd) {
 
 <script>
 var count = 1
+var shut
+
 function checkCookie() {
    for (i=1;i<7;i++) {
     var user = cookie.get("Listtext" + i);
@@ -139,7 +141,7 @@ function checkCookie() {
      l.appendChild(t);
      var ulNode = document.getElementById("mUl");
      ulNode.appendChild(l);
-     var shut = document.getElementsByClassName("shut");
+      shut = document.getElementsByClassName("shut");
      var span = document.createElement("SPAN");
      var txt = document.createTextNode("\u00D7");
      span.className = "shut";
@@ -172,7 +174,7 @@ function fInsertList() {
   l.appendChild(t);
   var ulNode = document.getElementById("mUl");
   ulNode.appendChild(l);
-  var shut = document.getElementsByClassName("shut");
+  shut = document.getElementsByClassName("shut");
   var span = document.createElement("SPAN")
   var txt = document.createTextNode("\u00D7");
   span.className = "shut";
