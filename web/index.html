@@ -131,11 +131,17 @@ ul li:nth-child(odd) {
 
 <script>
 function checkCookie() {
+   for (i=0;i<document.cookie();i++) {
 
-  for (i=0;i<10;i++) {
     var user = cookie.get("Listtext" + i);
     if (user != "") {
-        alert("Welcome again " + user);
+      var l = document.createElement("li");
+
+     var t = document.createTextNode(user)
+     l.appendChild(t);
+     var ulNode = document.getElementById("mUl");
+     ulNode.appendChild(l);
+      alert("Welcome again " + user);
     }
   }
 }
@@ -158,7 +164,7 @@ var todoData = {
   todoValues: []
 }
 var todata =[]
-var count = 0
+var count = 1
 function fInsertList() {
   var l = document.createElement("li");
   var Myvalue = document.getElementById("todo").value;
@@ -172,11 +178,13 @@ function fInsertList() {
   span.appendChild(txt);
   l.appendChild(span);
 
-  count = 1
+
    var ltext = "Listtext" + count.toString()
 
 
   cookie.set(ltext,Myvalue)
+  count = count + 1
+
 
 
 
