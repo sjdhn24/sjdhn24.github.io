@@ -198,18 +198,10 @@ function fInsertList() {
   span.appendChild(txt);
   l.appendChild(span);
 
+var ltext = "Listtext" + count.toString()
+//cookie.set(ltext,Myvalue,30)
 
-
-   var ltext = "Listtext" + count.toString()
-
-
-  //cookie.set(ltext,Myvalue,30)
-
-
-
-
-
-cookie.set(ltext, Myvalue, {    expires: 7 });
+  cookie.set(ltext, Myvalue, {    expires: 7 });
 
 
   for (i = 0; i < shut.length; i++) {
@@ -238,9 +230,6 @@ list.addEventListener('click', function(ev) {
 
 
 
-  function Goto() {
-    res.url("page2.html")
-  }
 
 </script>
   <div><Button name="page2"" Onclick="Goto()">Goto</Button></div>
