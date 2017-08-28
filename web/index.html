@@ -133,7 +133,7 @@ ul li:nth-child(odd) {
 function checkCookie() {
 
   for (i=0;i<10;i++) {
-    var user = cookie.get("ltext" + i);
+    var user = cookie.get("Listtext" + i);
     if (user != "") {
         alert("Welcome again " + user);
     }
@@ -176,7 +176,7 @@ function fInsertList() {
    var ltext = "Listtext" + count.toString()
 
 
-  cookie.set("ltext",Myvalue)
+  cookie.set(ltext,Myvalue)
 
 
 
