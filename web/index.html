@@ -199,6 +199,10 @@ cookie.set(ltext, Myvalue, {    expires: 7 });
     close[i].onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
+      var ltext = "Listtext" + i
+      cookie.remove(ltext)
+
+
     }
   }
   var n= document.getElementById('todo')
