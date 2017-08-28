@@ -131,10 +131,13 @@ ul li:nth-child(odd) {
 
 <script>
 function checkCookie() {
-    var user = cookie.get("ltext");
+
+  for i=0;i++;i<10 {
+    var user = cookie.get("ltext" + i);
     if (user != "") {
         alert("Welcome again " + user);
     }
+  }
 }
 
 
@@ -189,6 +192,7 @@ function fInsertList() {
   n.value=""
    n.focus()
 }
+
 
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
