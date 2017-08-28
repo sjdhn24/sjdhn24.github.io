@@ -178,6 +178,7 @@ function fInsertList() {
   var span = document.createElement("SPAN")
   var txt = document.createTextNode("\u00D7");
   span.className = "shut";
+
   span.appendChild(txt);
   l.appendChild(span);
  var ltext = "Listtext" + count.toString()
@@ -204,6 +205,11 @@ list.addEventListener('click', function(ev) {
     ev.target.classList.toggle('checked');
   }
 }, false);
+
+var list = document.querySelector(.shut)
+list.addEventListener('click',function(ev)
+{};)
+
 
 
 
