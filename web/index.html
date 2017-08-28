@@ -145,12 +145,18 @@ function checkCookie() {
      var ulNode = document.getElementById("mUl");
      ulNode.appendChild(l);
 
+     var span = document.createElement("SPAN");
+     var txt = document.createTextNode("\u00D7");
+     span.className = "shut";
+     span.appendChild(txt);
+     l.appendChild(span);
+
 
     //  alert("Welcome again " + user);
      count = count + 1
     }
   }
-  closebutton;
+
 }
 
 
