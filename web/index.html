@@ -137,7 +137,7 @@ function checkCookie() {
    for (i=1;i<7;i++) {
 
     var user = cookie.get("Listtext" + i);
-    if (user != "") {
+
       var l = document.createElement("li");
 
      var t = document.createTextNode(user)
@@ -151,11 +151,9 @@ function checkCookie() {
      span.className = "shut";
      span.appendChild(txt);
      l.appendChild(span);
-
-
     //  alert("Welcome again " + user);
      count = count + 1
-    }
+
   }
 
 }
@@ -209,10 +207,9 @@ var ltext = "Listtext" + count.toString()
       div.style.display = "none";
       var ltext = "Listtext" + i
       cookie.remove(ltext)
-
-
     }
   }
+
   var n= document.getElementById('todo')
   n.value=""
    n.focus()
