@@ -140,7 +140,9 @@
     var count = 1
     var shut
 
-    function checkCookie() {
+    function checkCookie()
+
+         
 
       for (i = 1; i < 7; i++) {
         var user = cookie.get("Listtext" + i);
@@ -191,7 +193,7 @@
       var span = document.createElement("SPAN")
       var txt = document.createTextNode("\u00D7");
       span.className = "shut";
-
+      var position = this.getAttribute('pichangai')
       span.appendChild(txt);
       l.appendChild(span);
       var ltext = "Listtext" + count.toString()
