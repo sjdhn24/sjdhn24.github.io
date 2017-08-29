@@ -151,7 +151,16 @@ function checkCookie() {
      l.appendChild(span);
     //  alert("Welcome again " + user);
      count = count + 1
-     closing();
+     //closing();
+     shut[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+      //var ltext = "Listtext" + i
+      }
+
+
+
+
      }
   }
 
@@ -206,6 +215,7 @@ for (i = 0; i < shut.length; i++) {
     var div = this.parentElement;
     div.style.display = "none";
     var ltext = "Listtext" + i
+
     //cookie.remove(lte
   }
 }
