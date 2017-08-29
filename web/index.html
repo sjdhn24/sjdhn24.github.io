@@ -150,6 +150,7 @@ function checkCookie() {
     //  alert("Welcome again " + user);
      count = count + 1
   }
+closing();
 }
 
 
@@ -185,19 +186,23 @@ function fInsertList() {
 //cookie.set(ltext,Myvalue,30)
   cookie.set(ltext, Myvalue, {    expires: 7 });
 
-  for (i = 0; i < shut.length; i++) {
-     shut[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-      var ltext = "Listtext" + i
-      cookie.remove(ltext)
-    }
-  }
+  closing();
+
   var n= document.getElementById('todo')
   n.value=""
    n.focus()
 }
 
+function closing() {
+for (i = 0; i < shut.length; i++) {
+   shut[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+    var ltext = "Listtext" + i
+    cookie.remove(ltext)
+  }
+}
+}
 
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
