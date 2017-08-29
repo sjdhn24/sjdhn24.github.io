@@ -137,7 +137,7 @@ function checkCookie() {
 
    for (i=1;i<7;i++) {
     var user = cookie.get("Listtext" + i);
-      if (user != "") {
+      if (user !== undefined) {
       var l = document.createElement("li");
      var t = document.createTextNode(user)
      l.appendChild(t);
