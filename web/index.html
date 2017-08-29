@@ -134,9 +134,10 @@ var count = 1
 var shut
 
 function checkCookie() {
-   
+
    for (i=1;i<7;i++) {
     var user = cookie.get("Listtext" + i);
+      if (user != "") {
       var l = document.createElement("li");
      var t = document.createTextNode(user)
      l.appendChild(t);
@@ -150,6 +151,7 @@ function checkCookie() {
      l.appendChild(span);
     //  alert("Welcome again " + user);
      count = count + 1
+     }
   }
 closing();
 }
