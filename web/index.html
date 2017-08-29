@@ -147,7 +147,7 @@
       for (i = 1; i < localStorage.length; i++) {
         var user = cookie.get("Listtext" + i);
         var user = localStorage.getItem("Listtext" + i)
-        if (user !== "") {
+        if (user !== null) {
           var l = document.createElement("li");
           var t = document.createTextNode(user)
           l.appendChild(t);
