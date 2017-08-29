@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"  >
+<html lang="en">
+
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -13,6 +14,7 @@
 
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+
     ul li.checked::before {
       content: '';
       position: absolute;
@@ -34,217 +36,205 @@
     }
 
     ul li.checked {
-  background: #888;
-  color: #fff;
-  text-decoration: line-through;
-}
+      background: #888;
+      color: #fff;
+      text-decoration: line-through;
+    }
 
-ul li:hover {
-    background: #ddd;
-}f
+    ul li:hover {
+      background: #ddd;
+    }
 
-.matter{
-    border: none;
-    width: 75%;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
+    f .matter {
+      border: none;
+      width: 75%;
+      padding: 10px;
+      float: left;
+      font-size: 16px;
+    }
 
-}
-
-ul li {
-  cursor: pointer;
-  position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
-  font-size: 18px;
-  transition: 0.2s;}
-
-
-.shut  {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
-}
-
-.shut:hover {
-    background-color: #f44336;
-    color: white;
-}
-
-ul li:nth-child(odd) {
-    background: #f9f9f9;
-}
-
-.addbtn:hover
- { background: red;
-}
+    ul li {
+      cursor: pointer;
+      position: relative;
+      padding: 12px 8px 12px 40px;
+      background: #eee;
+      font-size: 18px;
+      transition: 0.2s;
+    }
 
 
-    .row.content {height: 1500px}
+    .shut {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 12px 16px 12px 16px;
+    }
 
+    .shut:hover {
+      background-color: #f44336;
+      color: white;
+    }
+
+    ul li:nth-child(odd) {
+      background: #f9f9f9;
+    }
+
+    .addbtn:hover {
+      background: red;
+    }
+
+
+    .row.content {
+      height: 1500px
+    }
     /* Set gray background color and 100% height */
+
     .sidenav {
       background-color: white;
       height: 100%;
     }
 
-    .myclass a:hover, .offcanvas a:focus{
-        color: blue;
+    .myclass a:hover,
+    .offcanvas a:focus {
+      color: blue;
     }
-
-
     /* Set black background color, white text and some padding */
+
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
-
     /* On small screens, set height to 'auto' for sidenav and grid */
+
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
         padding: 15px;
       }
-      .row.content {height: auto;}
+      .row.content {
+        height: auto;
+      }
     }
   </style>
 </head>
-<body onload = "checkCookie()">
+
+<body onload="checkCookie()">
 
 
 
-<DIV id="div1" class="header">
+  <DIV id="div1" class="header">
 
-  <input type ="text" id="todo" width = "50" class = "matter" placeHolder = "ToItem.." autofocus>
+    <input type="text" id="todo" width="50" class="matter" placeHolder="ToItem.." autofocus>
 
-  <input type="button" Id="btn" class="addbtn" Value="Add" onclick="fInsertList()">
-  <ul id="mUl">
-    <li>My T List</li>
-  </ul>
-</div>
-<p id="list"></p>
+    <input type="button" Id="btn" class="addbtn" Value="Add" onclick="fInsertList()">
+    <ul id="mUl">
+      <li>My T List</li>
+    </ul>
+  </div>
+  <p id="list"></p>
 
-</div>
+  </div>
 
-<script>
-var count = 1
-var shut
+  <script>
+    var count = 1
+    var shut
 
-function checkCookie() {
+    function checkCookie() {
 
-   for (i=1;i<7;i++) {
-    var user = cookie.get("Listtext" + i);
-      if (user !== undefined) {
-      var l = document.createElement("li");
-     var t = document.createTextNode(user)
-     l.appendChild(t);
-     var ulNode = document.getElementById("mUl");
-     ulNode.appendChild(l);
-      shut = document.getElementsByClassName("shut");
-     var span = document.createElement("SPAN");
-     var txt = document.createTextNode("\u00D7");
-     span.className = "shut";
-     span.appendChild(txt);
-     l.appendChild(span);
-    //  alert("Welcome again " + user);
-     count = count + 1
-     //closing();
-     shut.onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-      //var ltext = "Listtext" + i
+      for (i = 1; i < 7; i++) {
+        var user = cookie.get("Listtext" + i);
+        if (user !== undefined) {
+          var l = document.createElement("li");
+          var t = document.createTextNode(user)
+          l.appendChild(t);
+          var ulNode = document.getElementById("mUl");
+          ulNode.appendChild(l);
+          shut = document.getElementsByClassName("shut");
+          var span = document.createElement("SPAN");
+          span.setAttribute('pichangai', i);
+          var txt = document.createTextNode("\u00D7");
+          span.className = "shut";
+          span.appendChild(txt);
+          l.appendChild(span);
+          //  alert("Welcome again " + user);
+          count = count + 1
+          closing();
+
+        }
       }
+    }
 
 
+    // Create a "close" button and append it to each list item
+    //closebutton () {
+    //var myNodelist = document.getElementsByTagName("LI");
+    //var i;
+    //var close = document.getElementsByClassName("shut");
+
+    //for (i = 0; i < myNodelist.length; i++) {
+    //  var span = document.createElement("SPAN");
+    //var txt = document.createTextNode("\u00D7");
+    //span.className = "shut";
+    //span.appendChild(txt);
+    //myNodelist[i].appendChild(span);
+    //}
+    //}
+    function fInsertList() {
+      var l = document.createElement("li");
+      var Myvalue = document.getElementById("todo").value;
+      var t = document.createTextNode(Myvalue)
+      l.appendChild(t);
+      var ulNode = document.getElementById("mUl");
+      ulNode.appendChild(l);
+      shut = document.getElementsByClassName("shut");
+      var span = document.createElement("SPAN")
+      var txt = document.createTextNode("\u00D7");
+      span.className = "shut";
+
+      span.appendChild(txt);
+      l.appendChild(span);
+      var ltext = "Listtext" + count.toString()
+      count = count + 1
 
 
-     }
-  }
+      //cookie.set(ltext,Myvalue,30)
+      cookie.set(ltext, Myvalue, {
+        expires: 7
+      });
 
-}
+      closing();
 
+      var n = document.getElementById('todo')
+      n.value = ""
+      n.focus()
+    }
 
-// Create a "close" button and append it to each list item
-//closebutton () {
-//var myNodelist = document.getElementsByTagName("LI");
-//var i;
-//var close = document.getElementsByClassName("shut");
+    function closing() {
+      for (i = 0; i < shut.length; i++) {
+        shut[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+          var position = this.getAttribute('pichangai')
+          var ltext = "Listtext" + position;
+          cookie.remove(ltext);
+        }
+      }
+    }
 
-//for (i = 0; i < myNodelist.length; i++) {
-//  var span = document.createElement("SPAN");
-  //var txt = document.createTextNode("\u00D7");
-  //span.className = "shut";
-  //span.appendChild(txt);
-  //myNodelist[i].appendChild(span);
-//}
-//}
-function fInsertList() {
-  var l = document.createElement("li");
-  var Myvalue = document.getElementById("todo").value;
-  var t = document.createTextNode(Myvalue)
-  l.appendChild(t);
-  var ulNode = document.getElementById("mUl");
-  ulNode.appendChild(l);
-  shut = document.getElementsByClassName("shut");
-  var span = document.createElement("SPAN")
-  var txt = document.createTextNode("\u00D7");
-  span.className = "shut";
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+      if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+      }
+    }, false);
 
-  span.appendChild(txt);
-  l.appendChild(span);
- var ltext = "Listtext" + count.toString()
-count = count + 1
+    //var list = document.querySelector("SPAN.shut")
+    //list.addEventListener('click',function(ev)
+    //{})
 
-
-//cookie.set(ltext,Myvalue,30)
-  cookie.set(ltext, Myvalue, {    expires: 7 });
-
-  closing();
-
-  var n= document.getElementById('todo')
-  n.value=""
-   n.focus()
-}
-
-function closing() {
-for (i = 0; i < shut.length; i++) {
-   shut[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-    var ltext = "Listtext" + i
-
-    //cookie.remove(lte
-  }
-}
-}
-
-var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false);
-
-//var list = document.querySelector("SPAN.shut")
-//list.addEventListener('click',function(ev)
-//{})
-
-var s = document.querySelector('SPAN');
- s.addEventListener('click', function(ev){
-  if(ev.target.tagName === 'SPAN') {
- alert("hello")
-}
-
-
-},false);
-
-
-
-
-</script>
+  </script>
 
 </body>
+
 </html>
