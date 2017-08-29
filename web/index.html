@@ -134,6 +134,7 @@ var count = 1
 var shut
 
 function checkCookie() {
+   
    for (i=1;i<7;i++) {
     var user = cookie.get("Listtext" + i);
       var l = document.createElement("li");
@@ -183,6 +184,9 @@ function fInsertList() {
   span.appendChild(txt);
   l.appendChild(span);
  var ltext = "Listtext" + count.toString()
+count = count + 1
+
+
 //cookie.set(ltext,Myvalue,30)
   cookie.set(ltext, Myvalue, {    expires: 7 });
 
