@@ -155,6 +155,7 @@ var a = []
           var ulNode = document.getElementById("mUl");
           ulNode.appendChild(l);
           shut = document.getElementsByClassName("shut");
+
           var span = document.createElement("SPAN");
           span.setAttribute('pichangai', i);
           var txt = document.createTextNode("\u00D7");
@@ -182,9 +183,11 @@ var a = []
     //span.appendChild(txt);
     //myNodelist[i].appendChild(span);
     //}
-    //}
+
+   var j = localStorage.length
+
     function fInsertList() {
-     var i = localStorage.length + 1
+      j += 1
       var l = document.createElement("li");
       var Myvalue = document.getElementById("todo").value;
       var t = document.createTextNode(Myvalue)
@@ -195,13 +198,13 @@ var a = []
       var span = document.createElement("SPAN")
       var txt = document.createTextNode("\u00D7");
       span.className = "shut";
-      span.setAttribute('pichangai',i)
+      span.setAttribute('pichangai',j)
       span.appendChild(txt);
       l.appendChild(span);
-      var ltext = "Listtext" + i.toString()
+      var ltext = "Listtext" + j.toString()
       //a.push = Myvalue
       localStorage.setItem(ltext,Myvalue)
-      count += 1
+
 
 
       //cookie.set(ltext,Myvalue,30)
