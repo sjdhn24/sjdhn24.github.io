@@ -149,8 +149,9 @@ var as = []
         var user = localStorage.key(i)
 
         if (user.substring(0,8) == "Listtext") {
+
           var l = document.createElement("li");
-          var t = document.createTextNode(user)
+          var t = document.createTextNode(localStorage.value(i))
           l.appendChild(t);
           var ulNode = document.getElementById("mUl");
           ulNode.appendChild(l);
