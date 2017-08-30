@@ -148,10 +148,11 @@ var as = []
         //var user = cookie.get("Listtext" + i);
         var user = localStorage.key(i)
 
+
         if (user.substring(0,8) == "Listtext") {
 
           var l = document.createElement("li");
-          var t = document.createTextNode(localStorage.value(i))
+          var t = document.createTextNode(localStorage.getItem(user));
           l.appendChild(t);
           var ulNode = document.getElementById("mUl");
           ulNode.appendChild(l);
