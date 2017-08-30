@@ -162,7 +162,7 @@ var a = []
           span.appendChild(txt);
           l.appendChild(span);
           //  alert("Welcome again " + user);
-          count = count + 1
+
           closing();
           }
 
@@ -184,6 +184,7 @@ var a = []
     //}
     //}
     function fInsertList() {
+     var i = localStorage.length + 1
       var l = document.createElement("li");
       var Myvalue = document.getElementById("todo").value;
       var t = document.createTextNode(Myvalue)
@@ -194,10 +195,10 @@ var a = []
       var span = document.createElement("SPAN")
       var txt = document.createTextNode("\u00D7");
       span.className = "shut";
-      span.setAttribute('pichangai',count)
+      span.setAttribute('pichangai',i)
       span.appendChild(txt);
       l.appendChild(span);
-      var ltext = "Listtext" + count.toString()
+      var ltext = "Listtext" + i.toString()
       //a.push = Myvalue
       localStorage.setItem(ltext,Myvalue)
       count += 1
