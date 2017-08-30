@@ -144,9 +144,9 @@ var as = []
 
    function checkCookie() {
      var i = 0
-    for (i in localStorage.key) {
+    for (i = 0 i < localStorage.length i++) {
         //var user = cookie.get("Listtext" + i);
-        var user = i
+        var user = localStorage.key(i)
 
         if (user == "Listtext" + i) {
           var l = document.createElement("li");
