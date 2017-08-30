@@ -119,7 +119,7 @@
   </style>
 </head>
 
-<body onload="fInit();">
+<body onload="init()">
 
 
 
@@ -141,7 +141,8 @@
     var count = 0
     var shut
 var a = []
-function fInit() {
+
+function init() {
  var getUser = cookie.get("user")
  sessionStorage.set("user",getUser)
  document.getElementById("user"). value = "Welcome " + sessionStorage.get("user")
