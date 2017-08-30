@@ -119,11 +119,12 @@
   </style>
 </head>
 
-<body onload="checkCookie()">
+<body onload="fInit()">
 
 
 
   <DIV id="div1" class="header">
+  <h1 id="user"><h1>
 
     <input type="text" id="todo" width="50" class="matter" placeHolder="ToItem.." autofocus>
 
@@ -140,7 +141,13 @@
     var count = 0
     var shut
 var a = []
+function Init() {
+ var getUser = cookie.get("user")
+ sessionStorage.set("user",getUser)
+ document.getElementById("user"). value = "Welcome " + sessionStorage.get("user")
+ checkCookie();
 
+}
 
    function checkCookie() {
      var i = 0
@@ -208,10 +215,10 @@ var a = []
 
 
 
-      //cookie.set(ltext,Myvalue,30)
-      //cookie.set(ltext, Myvalue, {
-    //    expires: 7
-    //  });
+
+    cookie.set("user","Sajjad" {
+     expires: 7
+      });
 
   //localStorage.setItem(ltext,Myvalue)
 
