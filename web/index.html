@@ -144,8 +144,8 @@ var a = []
 
 function fMain() {
  var getUser = cookie.get("user")
- sessionStorage.set("user",getUser)
- document.getElementById("user"). value = "Welcome " + sessionStorage.get("user")
+ sessionStorage.setItem("user",getUser)
+ document.getElementById("user"). value = "Welcome " + sessionStorage.getITem("user")
  checkCookie();
 
 }
