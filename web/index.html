@@ -137,9 +137,9 @@
   </div>
 
   <script>
-    var count = 1
+    var count = 0
     var shut
-var as = []
+var a = []
 
 
    function checkCookie() {
@@ -147,8 +147,6 @@ var as = []
     for (i = 0 ;i < localStorage.length ;i++) {
         //var user = cookie.get("Listtext" + i);
         var user = localStorage.key(i)
-
-
         if (user.substring(0,8) == "Listtext") {
 
           var l = document.createElement("li");
@@ -200,15 +198,15 @@ var as = []
       span.appendChild(txt);
       l.appendChild(span);
       var ltext = "Listtext" + count.toString()
-      a[count] = Myvalue
+      a.push = Myvalue
       localStorage.setItem(Listtext,a[count])
-      count = count + 1
+      count += 1
 
 
       //cookie.set(ltext,Myvalue,30)
-      cookie.set(ltext, Myvalue, {
-        expires: 7
-      });
+      //cookie.set(ltext, Myvalue, {
+    //    expires: 7
+    //  });
 
   //localStorage.setItem(ltext,Myvalue)
 
