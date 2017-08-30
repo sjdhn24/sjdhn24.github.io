@@ -139,16 +139,19 @@
   <script>
     var count = 1
     var shut
+var as = []
+
 
     function checkCookie() {
 
 
      var i = 0
 
-      for (j = 1; j < localStorage.length; j++) {
+      for (i in localStorage.getItem.key)
         //var user = cookie.get("Listtext" + i);
-        var user = localStorage.getItem("Listtext" + j)
-        if (user !== null) {
+        var user = i
+
+        if (user == "Listtext" + i) {
           var l = document.createElement("li");
           var t = document.createTextNode(user)
           l.appendChild(t);
@@ -166,7 +169,7 @@
           closing();
 
         }
-      }
+
     }
 
 
@@ -199,6 +202,8 @@
       span.appendChild(txt);
       l.appendChild(span);
       var ltext = "Listtext" + count.toString()
+      a[count] = Myvalue
+      localStorage.setItem(Listtext,a[count])
       count = count + 1
 
 
@@ -207,7 +212,7 @@
         expires: 7
       });
 
-  localStorage.setItem(ltext,Myvalue)
+  //localStorage.setItem(ltext,Myvalue)
 
       closing();
 
@@ -217,8 +222,8 @@
     }
 
     function closing() {
-
-      for (var i = 0; i < shut.length; i++) {
+ var i = 0;
+      for ( i = 0; i < shut.length; i++) {
         shut[i].onclick = function() {
           var div = this.parentElement;
           div.style.display = "none";
