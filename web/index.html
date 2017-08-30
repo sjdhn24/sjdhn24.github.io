@@ -45,8 +45,7 @@
     ul li.checked {
       background: #888;
       color: #fff
-
-      text-decoration: line-through;
+      text-decoration:line-through;
     }
 
     ul li:hover {
@@ -140,7 +139,7 @@
 
     <input type="button" Id="btn" class="addbtn" Value="Add" onclick="fInsertList()">
     <ul id="mUl">
-      <li>My T List</li>
+      <li>My T0d0 List</li>
     </ul>
   </div>
   <p id="list"></p>
@@ -150,15 +149,24 @@
   <script>
     var count = 0
     var shut
-var a = []
+var a = {}
 
 function fMain() {
  var getUser = cookie.get("user")
  sessionStorage.setItem("user",getUser)
  document.getElementById("user").innerHTML = "Welcome " + sessionStorage.getItem("user")
+
+ a.wheels = 4
+ a.color ="blue"
+
+localStorage.setItem(a,JSON.Stingyfy(a))
+console.log(JSON.parse(a))
+
+
  checkCookie();
 
 }
+
 
    function checkCookie() {
      var i = 0
@@ -188,19 +196,6 @@ function fMain() {
     }
   }
 
-    // Create a "close" button and append it to each list item
-    //closebutton () {
-    //var myNodelist = document.getElementsByTagName("LI");
-    //var i;
-    //var close = document.getElementsByClassName("shut");
-
-    //for (i = 0; i < myNodelist.length; i++) {
-    //  var span = document.createElement("SPAN");
-    //var txt = document.createTextNode("\u00D7");
-    //span.className = "shut";
-    //span.appendChild(txt);
-    //myNodelist[i].appendChild(span);
-    //}
 
    var j = localStorage.length
 
@@ -223,15 +218,6 @@ function fMain() {
  span.setAttribute('pichangai',ltext)
       //a.push = Myvalue
       localStorage.setItem(ltext,Myvalue)
-
-
-
-
-
-
-
-
-  //localStorage.setItem(ltext,Myvalue)
 
       closing();
 
@@ -264,9 +250,6 @@ cookie.set("user","Sajjad",30)
       }
     }, false);
 
-    //var list = document.querySelector("SPAN.shut")
-    //list.addEventListener('click',function(ev)
-    //{})
 
   </script>
 
