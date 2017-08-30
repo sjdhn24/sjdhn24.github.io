@@ -148,7 +148,7 @@ var as = []
         //var user = cookie.get("Listtext" + i);
         var user = localStorage.key(i)
 
-        if (user.subString(0,8) == "Listtext") {
+        if (user.substring(0,8) == "Listtext") {
           var l = document.createElement("li");
           var t = document.createTextNode(user)
           l.appendChild(t);
