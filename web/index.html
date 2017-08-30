@@ -157,7 +157,7 @@ var a = []
           shut = document.getElementsByClassName("shut");
 
           var span = document.createElement("SPAN");
-          span.setAttribute('pichangai', i);
+          span.setAttribute('pichangai', user);
           var txt = document.createTextNode("\u00D7");
           span.className = "shut";
           span.appendChild(txt);
@@ -198,10 +198,11 @@ var a = []
       var span = document.createElement("SPAN")
       var txt = document.createTextNode("\u00D7");
       span.className = "shut";
-      span.setAttribute('pichangai',j)
+
       span.appendChild(txt);
       l.appendChild(span);
       var ltext = "Listtext" + j.toString()
+ span.setAttribute('pichangai',ltext)
       //a.push = Myvalue
       localStorage.setItem(ltext,Myvalue)
 
@@ -227,9 +228,10 @@ var a = []
         shut[i].onclick = function() {
           var div = this.parentElement;
           div.style.display = "none";
-          var position = this.getAttribute('pichangai')
-          var ltext = "Listtext" + position;
-          cookie.remove(ltext);
+          var ltext = this.getAttribute('pichangai')
+
+          //var ltext = "Listtext" + position;
+          //cookie.remove(ltext);
           localStorage.removeItem(ltext)
         }
       }
