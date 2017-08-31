@@ -152,6 +152,7 @@
   </div>
 
   <script>
+<script type="text/javascript" src="web/colors.json"></script>
     var count = 0
     var shut
     var a = {}
@@ -161,10 +162,12 @@
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-          var obj = JSON.stringify(this.responseText)
+          //var obj = JSON.stringify(this.responseText)
 
 
-          console.log(JSON.parse(obj.colors.color(0)))
+          var mydate = JSON.parse(this.responseText)
+          console.log(mydata.colors.color(0))
+
           document.getElementById("jason").innerHTML = this.responseText;
         }
       };
