@@ -160,11 +160,12 @@
     function fjason() {
 
       var xhttp = new XMLHttpRequest();
+     console.log("UNSENT", xhhtp.readyState) 
+
+
       xhttp.onreadystatechange = function() {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
           //var obj = JSON.stringify(this.responseText)
-
-
           var mydata = JSON.parse(this.responseText)
           //var mydata = this.responseText
 var x = 0
@@ -172,14 +173,18 @@ var x = 0
 for(x=0;x < mydata.colors.length; x++) {
 
 console.log(mydata.colors[x]) }
-
-
-
           document.getElementById("jason").innerHTML = this.responseText;
         }
       };
       xhttp.open("GET", "colors.JSON", true);
+console.log("OPENED ", xhhtp.readyState)
+//Xhttp.onprogress() = function() {
+
+//console.log("LOADING... ", readyState)
+//}
       xhttp.send();
+ console.log("HEADERS RECEIVED " xhttp.readyState)
+
     }
 
 
@@ -187,16 +192,11 @@ console.log(mydata.colors[x]) }
       var getUser = cookie.get("user")
       sessionStorage.setItem("user", getUser)
       document.getElementById("user").innerHTML = "Welcome " + sessionStorage.getItem("user")
-
       a.wheels = 4
       a.color = "blue"
-
       localStorage.setItem("a", JSON.stringify(a))
       console.log(JSON.parse(a.wheels))
-
-
       checkCookie();
-
     }
 
 
