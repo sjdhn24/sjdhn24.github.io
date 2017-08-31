@@ -161,25 +161,17 @@
 
       var xhttp = new XMLHttpRequest();
       console.log("UNSENT", xhttp.readyState)
+       Xhttp.onprogress = function () {
+  console.log("loading", xhttp.readyState)
+
+
+}
+
 
 
       xhttp.onreadystatechange = function() {
-    //    switch(xttp.readystate) {
-  ////  case 0:
-
-
-      //  break;
-    ////case 1:
-
-        //break;
-    //case 4:
-
-
-
-
-
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-         console.log("HEADERS RECEIVED ", xhttp.readyState)
+         console.log("DONE  ", xhttp.readyState)
 
 
           //var obj = JSON.stringify(this.responseText)
