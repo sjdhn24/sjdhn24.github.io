@@ -167,10 +167,11 @@
 
           var mydata = JSON.parse(this.responseText)
           //var mydata = this.responseText
-var x
+var x = 0
 
-for(x=0;x < mydata.length; x++) {
-console.log(mydata.colors[x]) }
+//for(x=0;x < mydata["colors"].length; x++) {
+
+console.log(mydata.colors[x])
 
 
           document.getElementById("jason").innerHTML = this.responseText;
