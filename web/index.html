@@ -161,7 +161,8 @@
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-          var obj = JSON.stringify(colors.JSON)
+          var obj = JSON.stringify(this.responseText)
+
 
           console.log(JSON.parse(obj.colors.color(0)))
           document.getElementById("jason").innerHTML = this.responseText;
