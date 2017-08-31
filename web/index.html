@@ -138,11 +138,15 @@
     <input type="text" id="todo" width="50" class="matter" placeHolder="ToItem.." autofocus>
 
     <input type="button" Id="btn" class="addbtn" Value="Add" onclick="fInsertList()">
+    <input type="button" Id="btn2" class="addbtn" Value="Get Json value" onclick="fjason()">
+
     <ul id="mUl">
       <li>My T0d0 List</li>
     </ul>
   </div>
   <p id="list"></p>
+  <P id ="jason"></p>
+
 
   </div>
 
@@ -150,6 +154,19 @@
     var count = 0
     var shut
 var a = {}
+
+function fjason() {
+
+var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("jason").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "colors.JASON", true);
+    xhttp.send();
+  }
+
 
 function fMain() {
  var getUser = cookie.get("user")
