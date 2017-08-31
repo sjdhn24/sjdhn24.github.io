@@ -160,25 +160,26 @@
     function fjason() {
 
       var xhttp = new XMLHttpRequest();
+      console.log("UNSENT", xhttp.readyState)
 
 
       xhttp.onreadystatechange = function() {
-        switch(xttp.readystate) {
-    case 0:
-    console.log("UNSENT", xhttp.readyState)
+    //    switch(xttp.readystate) {
+  ////  case 0:
+
+
+      //  break;
+    ////case 1:
 
         break;
-    case 1:
-console.log("OPENED ", xhttp.readyState)
-        break;
-    case 4:
-console.log("HEADERS RECEIVED ", xhttp.readyState)
+    //case 4:
+
 
 }
 
 
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-
+         console.log("HEADERS RECEIVED ", xhttp.readyState)
 
 
           //var obj = JSON.stringify(this.responseText)
@@ -193,6 +194,7 @@ console.log(mydata.colors[x]) }
         }
       };
       xhttp.open("GET", "colors.JSON", true);
+      console.log("OPENED ", xhttp.readyState)
 
 //Xhttp.onprogress() = function() {
 
