@@ -160,15 +160,15 @@ function fjason() {
 var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-      var obj = JASON.stringify(this.responseText)
-     console.log(JASON.parse(obj.colors.color))
+      var obj = JSON.stringify(this.responseText)
+     console.log(JSON.parse(obj.colors.color))
 
 
 
         document.getElementById("jason").innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "colors.JASON", true);
+    xhttp.open("GET", "colors.JSON", true);
     xhttp.send();
   }
 
