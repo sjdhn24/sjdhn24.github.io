@@ -132,7 +132,6 @@
 
   <h1 id="user" class="welcome"></h1>
 
-
   <DIV id="div1" class="header">
 
     <input type="text" id="todo" width="50" class="matter" placeHolder="ToItem.." autofocus>
@@ -164,21 +163,24 @@
 
 
 
-      xhttp.onreadystatechange = function() {
+  xhttp.onreadystatechange = function() {
+if this.readyState = this.HEADER_RECEIVED {
+console.log(xhttp.getResponseHeader('Content_Type'))
 
+
+}
 
   xhttp.onprogress = function () {
    console.log("loading", xhttp.readyState)
  console.log(this.responseText)
 
-  
  }
 
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
          console.log("DONE  ", xhttp.readyState)
 
 
-          //var obj = JSON.stringify(this.responseText)
+          //var obj = JSON.strin(this.responseText)
           var mydata = JSON.parse(this.responseText)
           //var mydata = this.responseText
 var x = 0
