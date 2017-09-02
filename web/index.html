@@ -161,15 +161,19 @@
 
       var xhttp = new XMLHttpRequest();
       console.log("UNSENT", xhttp.readyState)
-       xhttp.onprogress = function () {
-  console.log("loading", xhttp.readyState)
-
-
-}
 
 
 
       xhttp.onreadystatechange = function() {
+
+
+  xhttp.onprogress = function () {
+   console.log("loading", xhttp.readyState)
+ console.log(this.responseText)
+
+  
+ }
+
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
          console.log("DONE  ", xhttp.readyState)
 

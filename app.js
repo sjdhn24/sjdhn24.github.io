@@ -6,7 +6,8 @@ const app = express()
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use('/static/', express.static('web'))
+//app.use('/static/', express.static('web'))
+app.use('/', express.static('web'))
 
 app.get('/', function(req, res) {
   res.send('Hello World ' + req.query.a)
