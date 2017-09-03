@@ -128,17 +128,17 @@
   </style>
 </head>
 
-<body onload="fMain()">
+<body on load="fMain()">
 
   <h1 id="user" class="welcome"></h1>
 
   <DIV id="div1" class="header">
 
-    <input type="text" id="todo" width="50" class="matter" placeHolder="ToItem.." autofocus>
+    <input type="text" id="todo" width="50" class="matter" placeHolder="Enter Restaurant.." autofocus>
 
     <input type="button" Id="btn" class="addbtn" Value="Add" onclick="fInsertList()">
     <input type="button" Id="btn2" class="addbtn" Value="Get Json value" onclick="fjason()">
-
+<DIV id="map" width = "50%" height = "400px"></div>
     <ul id="mUl">
       <li>My T0d0 List</li>
     </ul>
@@ -151,53 +151,80 @@
   </div>
 
   <script>
-//script type="text/javascript" src="web/colors.json">
+    //script type="text/javascript" src="web/colors.json">
     var count = 0
-    var shut
+    var shutp
     var a = {}
+
+  // function displayData(resName) {
+
+
+
+
+
+//}
+
+
+
+    function updateProgress(evt)
+    {
+       if (evt.lengthComputable)
+       {  // evt.loaded the bytes the browser received
+          // evt.total the total bytes set by the header
+          // jQuery UI progress bar to show the progress on screen
+         var percentComplete = (evt.loaded / evt.total) * 100;
+         $('#progressbar').progressbar( "option", "value", percentComplete );
+       }
+    }
+
+
 
     function fjason() {
 
       var xhttp = new XMLHttpRequest();
       console.log("UNSENT", xhttp.readyState)
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 2) {
 
+          console.log(xhttp.getResponseHeader('Content-Type'))
+        }
 
+        xhttp.onprogress = function() {
 
-  xhttp.onreadystatechange = function() {
-if this.readyState = this.HEADER_RECEIVED {
-console.log(xhttp.getResponseHeader('Content_Type'))
+          console.log("loading", xhttp.readyState)
+           //UpdateProgress;
+          //
+         console.log(this.responseText)
 
-
-}
-
-  xhttp.onprogress = function () {
-   console.log("loading", xhttp.readyState)
- console.log(this.responseText)
-
- }
+        }
 
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-         console.log("DONE  ", xhttp.readyState)
-
-
+          console.log("DONE  ", xhttp.readyState)
           //var obj = JSON.strin(this.responseText)
           var mydata = JSON.parse(this.responseText)
           //var mydata = this.responseText
-var x = 0
+          var x = 0
+          var resName = document.getElementById("todo").value
+              resName = resName.trim()
+          for (x = 0; x < mydata.colors.length; x++) {
 
-for(x=0;x < mydata.colors.length; x++) {
+            console.log(mydata.colors[x])
+          ///  if ((mydata.colors[x].color).match(/bla.*/) {
+          //  resName = resName.trim()
+          //  console.log(mydata.colors[x].color)
 
-console.log(mydata.colors[x]) }
-          document.getElementById("jason").innerHTML = this.responseText;
+//}
+
+          }
+          //document.getElementById("jason").innerHTML = this.responseText;
         }
       };
       xhttp.open("GET", "colors.JSON", true);
       console.log("OPENED ", xhttp.readyState)
+      //Xhttp.onprogress() = function() {
 
-//Xhttp.onprogress() = function() {
-
-//console.log("LOADING... ", readyState)
-//}
+      //console.log("LOADING... ", readyState)
+      //}
       xhttp.send();
 
 
@@ -213,6 +240,14 @@ console.log(mydata.colors[x]) }
       localStorage.setItem("a", JSON.stringify(a))
       console.log(JSON.parse(a.wheels))
       checkCookie();
+    }
+    function myMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(51.5, -0.12),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
     }
 
 
@@ -298,6 +333,9 @@ console.log(mydata.colors[x]) }
       }
     }, false);
   </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?AIzaSyAvJCi2vxUBiJd8M8g48-2HOd2zQ2_hBmg&callback=myMap"></script>
+
 
 </body>
 
