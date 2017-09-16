@@ -1,0 +1,11 @@
+npm start - to start node pacakage manager
+mongod - to start mongodb server
+node app.js - to run app.js for express server
+
+
+
+server stop
+
+netstart
+
+

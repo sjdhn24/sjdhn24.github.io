@@ -1,0 +1,46 @@
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="bower_components/cookie/cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+
+
+<head>
+<style>
+
+#content {
+height: 100%;
+}
+</style>
+
+
+
+<script>
+
+
+$(document).ready(function() {
+    $('#mybutton').click(function(response, status) {
+
+
+        $('#content').load("https://maps.googleapis.com/maps/api/js?key=AIzaSyArW6oDMyP6Iu1RmcwGrdsqUcR3bIrfofI&callback=initMap&callback=initMap")
+
+    });
+});
+
+</script>
+</head>
+
+<body>
+<h1>Web page test.html</h1>
+<button id="mybutton">click<button>
+
+<div id="content"> </div>
+
+
+
+</body>
+
+
+
+</html>
