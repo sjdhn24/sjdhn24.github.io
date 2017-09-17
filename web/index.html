@@ -108,12 +108,8 @@
     }
     /* On small screens, set height to 'auto' for sidenav and grid */
 
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-    }
+
+
 
     .row {
       margin-left: 10px;
@@ -138,29 +134,25 @@
     }
 
     .res-name {
-      font-size: 20px;
+
       font-family: cursive;
       font-weight: lighter;
       font-style: oblique;
     }
 
-    .name2 {
-      font-size: 30px;
-      color: black;
-      font-family: fantasy, sans-serif;
-      font-weight: bolder;
-    }
 
     .street,
-    .zipcode,
-    .cusine {
-      font-size: 16px;
+    .zipcode
+     {
+
       font-family: sans-serif;
       font-weight: bold;
       font-style: oblique;
       color: black;
-      text-align: center;
-      vertical-align: top;
+      line-height:70%;
+      text-align: left     vertical-align: top;
+      overflow: hidden;
+      padding-left: 0px
     }
 
 
@@ -189,6 +181,7 @@
       text-shadow: 2px 2px 8px #FF0000;
       text-align: center;
       vertical-align: top;
+      overflow: hidden;
 
       .res-main-2 {}
     }
@@ -198,7 +191,8 @@
       border: 0px solid #a1a1a1;
       padding: 10px 40px;
       background: #e0d0d3;
-      width: auto;
+
+      overflow: hidden;
     }
 
     .hrline {
@@ -209,17 +203,13 @@
     }
 
 
-    .btn-danger:hover,
-    .btn-danger:focus,
-    .btn-danger:active,
-    .btn-danger.active {
-      color: #ffffff;
-      background-color: #a32d33;
-      ;
-      border-color: #285e8e;
-      box-shadow: none;
-    }
+    .btn-danger
 
+    {
+     margin-left: 20px;
+
+
+}
 
     .panel-default>.panelhead1 {
       background: #f90c28;
@@ -320,6 +310,45 @@ background-color: red;
 .home a:hover {
     color: orange;
   }
+
+  @media screen and (max-width: 414px) {
+
+           .body {
+
+           width:100%;
+}
+  }
+
+  @media screen and (max-width: 414px) {
+
+           .name2 {
+           color: green;
+           font-size: 1em;
+           font-weight: bold;
+
+                 }
+      }
+
+
+      @media screen and (max-width: 600px) {
+              .navbar-nav {
+             background-color: maroon;
+                        }
+
+               .name2 {
+               color: red;
+               font-size: 1em;
+               font-weight: bold;
+
+                     }
+          }
+
+          @media screen and (min-width: 800px) {
+                   #todo {
+                  width:500px;
+}
+         }
+
   </style>
 
 
@@ -352,92 +381,81 @@ background-color: red;
 
 <body onload="intialize();">
 
-  <div class="container-fluid">
-<div class="row">
-  <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+
 
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#"><img style="max-width:100px; margin-top: 0px;" src="/images/chineseIcon.png">
-</a>
-      </div>
-
-      <form class="navbar-form navbar-left" style="padding-left:0;padding-right:0;margin-left:10px;">
-      <div class="input-group ">
-        <input type="text " id="todo" title="enter restaurant name! " class="form-control " style="width: 650px; height:55px; font-size:25px; " placeholder="type Restaurant or Cuisine.like Chinese,American,Indian.. ">
-        <div class="input-group-btn ">
-          <button class="btn btn-default ">
-      <i class="glyphicon glyphicon-search " style="font-size:36px; "></i>
-
-
-    </button>
-
-        </div>
-  </div>
-
-
-    </form>
-
-
-      <div class="navbar-header" style="margin-top:7px;margin-left:70px;">
-        <a class="navbar-brand" href="#"><span class="label label-warning" style="width:100px;height:50px;font-size:28px;color:black;">NEW YORK'S A GRADE RESTAURANTS</span>
-    </a>
+        <a class="navbar-brand" href="#"><img src="images/brand1.png"></a>
       </div>
 
 
-    <ul class="nav navbar-nav navbar-right " >
-        <li class="home"><a href="#" style="font-size:16px;color:white;">Home</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size:16px;color:white;">Cuisine
-        <span class="caret"></span></a>
-          <ul class="dropdown-menu" id="items">
-            <li><a href="#"><span class="glyphicon glyphicon-glass">American</a></li>
-            <li class="divider"></li>
+      <ul class="nav navbar-nav navbar-right " >
+          <li class="home"><a href="#"  style="font-size:16px;color:white;">What Does Grade Mean?</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size:16px;color:white;">Cuisine
+          <span class="caret"></span></a>
+            <ul class="dropdown-menu" id="items">
+              <li><a href="#"><span class="glyphicon glyphicon-glass">American</a></li>
+              <li class="divider"></li>
 
-            <li><a href="#">Bakery</a></li>
-             <li class="divider"></li>
-            <li><a href="#">Bar </a></li>
-            <li class="divider"></li>
-
-
-
-            <li><a href="#">Chinese<span class="glyphicon glyphicon-glass"></a></li>
-            <li class="divider"></li>
+              <li><a href="#">Bakery</a></li>
+               <li class="divider"></li>
+              <li><a href="#">Bar </a></li>
+              <li class="divider"></li>
 
 
-            <li><a href="#">French Food</a></li>
-            <li class="divider"></li>
-            <li><a href="#">German Food</a></li>
-            <li class="divider"></li>
+
+              <li><a href="#">Chinese<span class="glyphicon glyphicon-glass"></a></li>
+              <li class="divider"></li>
 
 
-            <li><a href="#">Japanese</a></li>
-            <li class="divider"></li>
-
-            <li><a href="#"><span class="glyphicon glyphicon-glass">Indian</a></li>
-            <li class="divider"></li>
-
-            <li><a href="#">Indonesian</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Irish Food</a></li>
-            <li class="divider"></li>
+              <li><a href="#">French Food</a></li>
+              <li class="divider"></li>
+              <li><a href="#">German Food</a></li>
+              <li class="divider"></li>
 
 
-            <li><a href="#">Thai</a></li>
+              <li><a href="#">Japanese</a></li>
+              <li class="divider"></li>
 
+              <li><a href="#"><span class="glyphicon glyphicon-glass">Indian</a></li>
+              <li class="divider"></li>
+
+              <li><a href="#">Indonesian</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Irish Food</a></li>
+              <li class="divider"></li>
+
+
+              <li><a href="#">Thai</a></li>
+
+
+
+            </ul>
+          </li>
 
 
           </ul>
-        </li>
 
 
-        </ul>
+      <form class="navbar-form navbar-left">
+        <div class="input-group">
+          <input type="text" id="todo" class="form-control" placeholder="Enter name or Cuisine..">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </nav>
-</div>
-</div>
-</div>
+
+
+
+
+
 
 
 
@@ -507,7 +525,7 @@ background-color: red;
         </div>
 
         <div class="row">
-          <div class="col-sm-12 col-md-12 col-xs-12">
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-4">
 
             <div id="map">
 
@@ -552,15 +570,23 @@ background-color: red;
 
 
 
-          results.insertAdjacentHTML('beforeend', '<div class="panel panel-default" style="border-style: solid 2px, color black;">' +
-            '<div class="panel-heading panelhead2" class= "res-main"><p id="n" class="res-name"><span class="glyphicon glyphicon-glass"></span>' + restaurant.name + '</p></div>' +
-            '<div class="panel-body panelbody2"><div class ="res-street"><p class="street">' + 'Cuisine: ' + restaurant.cuisineDescription + '</p></div>' +
-            '<div class ="res-street"><p class="street">' + 'Street: ' + restaurant.street + '</p></div>' +
-            '<div class="res-street"><p class="zipcode">' + 'zipcode: ' + restaurant.zipCode + '  Phone: ' + phone + '</p></div>'
+          results.insertAdjacentHTML('beforeend', '<div class="panel panel-default" style="border-style: solid 2px black;">' +
 
-            +
-            '<div class="row"><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><button  style="width:100px;" class="btn btn-danger btn-sm" onclick="getReport(' + "'" + id + "'" + ');" >2017</button>' +
-            '</div><div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><span class="label label-warning" style="width:60px;height:40px;font-size:18px;color:black;margin-bottom:5px;">find Grade</span></div><div class="col-xs-4"><button  class="btn-danger btn-sm" style="width:100px;">2016</button></div></div></div></div>')
+            '<div class="panel-heading panelhead2" class= "res-main"><p id="n" class="res-name"><span class="glyphicon glyphicon-glass"></span>' + restaurant.name + '</p></div>' +
+
+            '<div class="panel-body panelbody2">' + '<div class="row">' +
+
+            '<div class ="res-street"><p class="street">' + 'Cuisine: ' + restaurant.cuisineDescription + '</p></div>' +
+            '<div class ="res-street"><p class="street">' + ' Street: ' + restaurant.street + '</p></div>' +
+            '<div class="res-street"><p class="zipcode">' + 'zipcode: ' + restaurant.zipCode + '<p></div>' +
+            '<div class="res-street"><p class="zipcode">' + '  Phone: ' + phone   + '</p></div></div>'  +
+
+            '<div class="row"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn btn-danger btn-sm"  onclick="getReport(' + "'" + id + "'" + ');" >2017</button>' +
+            '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn-danger btn-sm" style="width:auto;">2016</button></div></div>'
+
+           + '</div></div>')
+
+
 
           var myid = id.toString()
 
