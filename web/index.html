@@ -31,8 +31,14 @@
       width: 100%;
       height: 100%;
       background-color: white;
-    }
 
+    }
+.row {
+margin-left: 5px;
+margin-right: 5px;
+
+
+}
 
     .container {
       width: 600px;
@@ -111,11 +117,6 @@
 
 
 
-    .row {
-      margin-left: 10px;
-      margin-right: 20px;
-      border-style: solid 1px red;
-    }
 
     .main-container {
       height: 90px;
@@ -156,19 +157,6 @@
     }
 
 
-    .panel-default>.panelhead2 {
-      background: linear-gradient(to bottom left, #f90c28 10%, #cc9900 100%);
-
-
-      color: #fff;
-    }
-
-
-    .panel-default>.panelbody2 {
-      background: #e0d0d3;
-      padding-left: 0px;
-      padding-right: 0px;
-    }
 
     .res-main {
       border: 1px solid #30080e;
@@ -221,6 +209,18 @@
       padding-left: 0;
       padding-right: 0;
     }
+
+    .panel-default>.panelhead2 {
+      background: linear-gradient(to bottom left, #f90c28 10%, #cc9900 100%);
+    }
+
+
+    .panel-default>.panelbody2 {
+      background: #e0d0d3;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
 
     .grade {
       font-size: 50px;
@@ -310,34 +310,29 @@ background-color: red;
 .home a:hover {
     color: orange;
   }
+.name2
+{
+color:red;
+font-size:30px;
+font-family: sans-serif;
+font-weight: bold;
 
-  @media screen and (max-width: 414px) {
-
-           .body {
-
-           width:100%;
 }
-  }
 
-  @media screen and (max-width: 414px) {
-
-           .name2 {
-           color: green;
-           font-size: 1em;
-           font-weight: bold;
-
-                 }
-      }
 
 
       @media screen and (max-width: 600px) {
               .navbar-nav {
-             background-color: maroon;
-                        }
+              background-color: maroon;
+                                      }
+
+                 .navbar-nav> .dropdown-menu li a {
+                 color:yellow;
+}
 
                .name2 {
-               color: red;
-               font-size: 1em;
+               color: maroon;
+               font-size: 2em;
                font-weight: bold;
 
                      }
@@ -380,9 +375,6 @@ background-color: red;
 
 
 <body onload="intialize();">
-
-
-
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -451,15 +443,6 @@ background-color: red;
       </form>
     </div>
   </nav>
-
-
-
-
-
-
-
-
-
 
   <div class="container-fluid" style="margin-top:140px;">
     <div class="row">
@@ -570,21 +553,22 @@ background-color: red;
 
 
 
-          results.insertAdjacentHTML('beforeend', '<div class="panel panel-default" style="border-style: solid 2px black;">' +
+          results.insertAdjacentHTML('beforeend', '<div class="panel panel-default" style="padding-left:0;padding-right:0;padding:0;">' +
 
-            '<div class="panel-heading panelhead2" class= "res-main"><p id="n" class="res-name"><span class="glyphicon glyphicon-glass"></span>' + restaurant.name + '</p></div>' +
+            '<div class="panel-heading panelhead2" class= "res-main" style:border:0;"><p id="n" class="res-name"><span class="glyphicon glyphicon-glass"></span>' + restaurant.name + '</p></div>' +
 
             '<div class="panel-body panelbody2">' + '<div class="row">' +
 
             '<div class ="res-street"><p class="street">' + 'Cuisine: ' + restaurant.cuisineDescription + '</p></div>' +
             '<div class ="res-street"><p class="street">' + ' Street: ' + restaurant.street + '</p></div>' +
             '<div class="res-street"><p class="zipcode">' + 'zipcode: ' + restaurant.zipCode + '<p></div>' +
-            '<div class="res-street"><p class="zipcode">' + '  Phone: ' + phone   + '</p></div></div>'  +
+            '<div class="res-street"><p class="zipcode">' + '  Phone: ' + phone   + '</p></div></div></div></div>'  +
 
-            '<div class="row"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn btn-danger btn-sm"  onclick="getReport(' + "'" + id + "'" + ');" >2017</button>' +
-            '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn-danger btn-sm" style="width:auto;">2016</button></div></div>'
+            '<div class="row" style="width:98%;vertical-align:center;background-color:maroon;border: 10px solid orange;"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn pull-right btn-danger btn-sm"   onclick="getReport(' + "'" + id + "'" + ');" >2017</button>' +
+            '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn pull-left btn-danger btn-sm" style="width:auto;">2016</button></div></div>')
 
-           + '</div></div>')
+
+
 
 
 
