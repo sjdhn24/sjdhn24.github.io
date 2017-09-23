@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="shortcut icon" href="images/favicon.ico">
+
+
+  <meta charset="utf-8">
+
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bower_components/cookie/cookie.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+  <script src="sha256/src/sha256.js"></script>
+
+
+
+
+
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjMb6Od7hkOybPXNxnzI_rhbQMKJErHxo"></script>
+
+  <style>
+  /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+    }
+
+    .row {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+
+    .container {
+      width: 600px;
+      margin: 0 auto;
+      padding:
+    }
+
+
+    #results * {
+      padding: 5px 10px
+    }
+
+    .h-scroll {
+      height: 90vh;
+      /* %-height of the viewport */
+      position: fixed;
+      overflow-y: scroll;
+    }
+
+    #map {
+      min-height: 350px;
+      width: 100%;
+      height: 50%;
+      border: 1px;
+    }
+
+    . .header {
+      background-color: #f44336;
+      padding: 30x 40px;
+      color: green;
+      text-align: center;
+    }
+
+
+    .name {
+      color: #ffffff;
+      font-family: 'Lato', sans-serif;
+      font-size: 54px;
+      font-weight: 300;
+      line-height: 58px;
+      margin: 0 0 58px;
+    }
+
+
+    .img-container {
+      width: 400px;
+      height: 350px;
+      margin: 0 0 0 0;
+    }
+
+    .img-map {
+      height: 100%;
+    }
+
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    #floating-panel {
+      position: absolute;
+      top: 10px;
+      left: 25%;
+      z-index: 5;
+      background-color: #fff;
+      padding: 5px;
+      border: 1px solid #999;
+      text-align: center;
+      font-family: 'Roboto', 'sans-serif';
+      line-height: 30px;
+      padding-left: 10px;
+    }
+    /* On small screens, set height to 'auto' for sidenav and grid */
+
+    .main-container {
+      height: 90px;
+      background-color: black;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .main-container2 {
+      height: 130px;
+      background-color: #30080e;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .res-name {
+
+      font-family: cursive;
+      font-weight: lighter;
+      font-style: oblique;
+    }
+
+
+    .street,
+    .zipcode {
+
+      font-family: sans-serif;
+      font-weight: bold;
+      font-style: oblique;
+      color: black;
+      text-align: left vertical-align: top;
+      overflow: hidden;
+      padding-left: 0px
+    }
+
+
+
+    .res-main {
+      border: 1px solid #30080e;
+      padding: 10px 40px;
+      background: #30080e;
+      width: auto;
+      height: 40px;
+      border-radius: 6px;
+      color: white;
+      text-shadow: 2px 2px 8px #FF0000;
+      text-align: center;
+      vertical-align: top;
+      overflow: hidden;
+
+      .res-main-2 {}
+    }
+
+    .res-street {
+      line-height: 70%;
+      border: 0px solid #a1a1a1;
+      padding: 10px 40px;
+      background: #e0d0d3;
+
+      overflow: hidden;
+    }
+
+    .hrline {
+      height: 1px;
+      border-style: ridge;
+      color: #333;
+      background-color: #333;
+    }
+
+
+    .btn-danger {
+      margin-left: 20px;
+    }
+
+    .panel-default>.panelhead1 {
+      background: #f90c28;
+      color: white;
+    }
+
+    .panel-default>.panelbody1 {
+      background: white;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .panel-default>.panelhead2 {
+      background: linear-gradient(to bottom left, #f90c28 10%, #cc9900 100%);
+    }
+
+
+    .panel-default>.panelbody2 {
+      background: #e0d0d3;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+
+    .grade {
+      font-size: 50px;
+      font-family: fantasy;
+      font-weight: 80px;
+      color: maroon;
+      text-shadow: 2px 2px 8px #FF0000;
+    }
+
+    .violationCode {
+      font-size: 40px;
+      font-family: sans-serif;
+      font-weight: 120px;
+      color: red;
+    }
+  }
+  #inspectionType,
+  #action,
+  #inspectionDate {
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: 40px;
+    color: maroon;
+  }
+
+  .navbar-inverse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(to right, #f90c28 20%, #ff3300);
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .navbar-default {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    background: linear-gradient(to right, #f90c28 20%, #ff3300);
+  }
+
+
+
+
+
+  li {
+    border-right: 1px solid white;
+  }
+  li:last-child {
+    border-right: none;
+  }
+
+
+  li a {
+    display: block;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+
+  .dropdown-menu {
+    width: 250px;
+    margin: 5px 0;
+    overflow: hidden;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: black;
+  }
+
+  .dropdown-menu>li a {
+    z-index: 2;
+    color: red;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+
+
+  .dropdown-menu>li a:hover {
+    background-color: red;
+  }
+  .navbar-nav>ul li a:hover {
+    color: orange;
+  }
+  .name2 {
+    color: red;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+  }
+  div#pop-up {
+    display: none;
+    position: absolute;
+    width: 270px;
+    height:50px;
+    padding: 10px;
+    background: white;
+    color: #3228ed;
+    border: 2px solid black;
+    font-size: 140%;
+    font-weight: bold;
+    z-index: 999;
+    transition: width 2s;
+    -webkit-transition: width 2s; /* Safari 3.1 to 6.0 */
+
+  }
+
+  div#pop-up:hover {
+      height: 300px;
+  }
+
+  h3 {
+    color: #f45342;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-decoration: underline;
+    text-decoration-color: black;
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+
+  @media screen and (max-width: 769px) {
+    .navbar-nav {
+      background-color: maroon;
+    }
+     .bigimg {
+
+      display: none;
+
+}
+    .navbar-form {
+      background: red;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(red, maroon);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(red, yellow);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(red, yellow);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(red, yellow);
+    }
+
+
+    .dropdown-menu {
+      width: 150px;
+      margin: 5px 0;
+      overflow: hidden;
+    }
+
+    .navbar-nav .open .dropdown-menu>li>a,
+    .navbar-nav .open .dropdown-menu {
+      background-color: #3344ff;
+      color: white;
+    }
+
+    div#p {
+      display: none;
+    }
+    img#bigimg {
+    display: none;
+}
+    span#mainhead {
+     margin-top: 15px;
+     margin-left:15px;
+
+      font-size: 15px;
+    }
+
+    div#pop-up {
+      display: none;
+      position: absolute;
+      width: 300px;
+      padding: 10px;
+      background: white;
+      color: #3228ed;
+      border: 2px solid black;
+      font-size: 90%;
+      font-weight: bold;
+      z-index: 999;
+    }
+
+    .name2 {
+      color: maroon;
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+
+  @media screen and (min-width: 770px) {
+    #todo {
+      width: 450px;
+    }
+  }
+
+  #mainhead {
+
+    padding-top: 20px padding: 0;
+    border-top: 0;
+    text-shadow: 5px 5px 10px black;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 200;
+    font-family: sans-serif;
+    color: yellow;
+  }
+  #grad1 {
+
+
+    padding: 0;
+    height: 75px;
+    background: red;
+    /* For browsers that do not support gradients */
+
+    background: -webkit-linear-gradient(red, maroon);
+    /* For Safari 5.1 to 6.0 */
+
+    background: -o-linear-gradient(red, maroon);
+    /* For Opera 11.1 to 12.0 */
+
+    background: -moz-linear-gradient(red, maroon);
+    /* For Firefox 3.6 to 15 */
+
+    background: linear-gradient(red, maroon);
+    /* Standard syntax (must be last) */
+  }
+
+  #todo {
+    border: 3px solid pink;
+
+  }
+.bigimg {
+width:350px;
+height:350x;
+}
+
+.tooltip {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: normal;
+  /* ... */
+}
+.tooltip .tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  color: #fff;
+  text-align: center;
+  background-color: #000;
+  border-radius: 4px;
+}
+.label-default {
+  background-color: #999;
+}
+.label-default[href]:hover,
+.label-default[href]:focus {
+  background-color: #808080;
+}
+
+
+
+  </style>
+
+
+
+  <script>
+    $(function() {
+      var moveLeft = -100;
+      var moveDown = 10;
+      $('a#trigger').hover(function(e) {
+        $('div#pop-up').show();
+
+      }, function() {
+        $('div#pop-up').hide();
+      });
+
+      $('a#trigger').mousemove(function(e) {
+        $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+      });
+
+    });
+
+
+    $(document).ready(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    $(document).ready(function() {
+      $('.dropdown-menu li a').click(function() {
+
+        var value1 = $(this).text();
+
+        var client = algoliasearch('U8GYLSQ3UQ', '6a8a63dbe4fbab51d9948234030a22ca');
+        var index = client.initIndex('RESTAURANTS');
+        index.search(value1, function(err, result) {
+          renderSearchResults(result.hits)
+
+        });
+
+      });
+    });
+  </script>
+
+</head>
+
+
+
+<body onload="intialize();">
+
+  <nav class="navbar navbar-default" id="grad1">
+    <div class="container-fluid">
+      <div class="navbar-header" style="padding:0px;margin-top:0;">
+        <a class="navbar-brand" href="#"><img src="images/brand1.png"></a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li < style="margin-top:13px;"><span id="mainhead">NEW YORK'S A-ONE RESTAURANTS</span></li>
+
+        <li class="home"><a href="#" id="trigger" style="font-size:16px;color:white;">What Does Grade Mean?</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size:16px;color:white;">Cuisine
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="items">
+            <li><a href="#"><span class="glyphicon glyphicon-glass">American</a></li>
+            <li class="divider"></li>
+
+            <li><a href="#">Bakery</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Bar </a></li>
+            <li class="divider"></li>
+            <li><a href="#">Chinese<span class="glyphicon glyphicon-glass"></a></li>
+            <li class="divider"></li>
+
+
+            <li><a href="#">French Food</a></li>
+            <li class="divider"></li>
+
+
+            <li><a href="#">Japanese</a></li>
+            <li class="divider"></li>
+
+            <li><a href="#"><span class="glyphicon glyphicon-glass">Indian</a></li>
+            <li class="divider"></li>
+
+            <li><a href="#">Indonesian</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Pizerria</a></li>
+            <li class="divider"></li>
+
+
+            <li><a href="#">Thai</a></li>
+
+
+
+          </ul>
+        </li>
+
+
+      </ul>
+
+
+      <form class="navbar-form navbar-left">
+        <div class="input-group" style="margin-top:13px;">
+          <input type="text" data-toggle ="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo" class="form-control" placeholder="Enter name or zipcode + Cusine or Cuisine..">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+
+
+
+
+  <div class="container-fluid" style="margin-top:140px;">
+    <div class="row">
+
+      <div class="col-sm-12 col-md-4 col-xs-12 col-lg-4" id="results">
+      </div>
+      <div class="col-sm-12 col-md-4 col-xs-12  col-lg-4" id="report">
+        <p id="grade"></p>
+        <p id="inspectionDate"></p>
+
+      </div>
+      <div class="col-sm-12 col-md-4 col-xs-12 col-lg-4">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12">
+
+            <div class="panel panel-default" id="p" style="border-style:solid 2px, color black;">
+              <div class="panel-heading panelhead1" id="imgpanelhead" style="font-size:16px;font-weight:bold;color:maroon;"></div>
+              <div class="panel-body panelbody1" style="padding:0px;">
+
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <div class="item active">
+                      <img src="images/japanese.jpg" alt="Japanese" style="width:100%;height:50%;">
+                    </div>
+
+                    <div class="item">
+                      <img src="images/chinese.jpg" alt="Chicago" style="width:100%;height:50%;">
+                    </div>
+
+                    <div class="item">
+                      <img src="images/american.jpg" alt="New York" style="width:100%;height:50%;">
+                    </div>
+                  </div>
+
+                  <!-- Left and right controls -->
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span><span><p>Get New York's A grade Eating Places..</p></span>
+              <span class="sr-only">Next</span>
+            </a>
+                </div>
+
+
+
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row" >
+          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12" >
+
+            <div id="map" style="background-color:pink;">
+
+            <img src="images/san.jpg" id="bigimg" style="width=300px;height:300px;margin-left:50px;margin-top:20px;">
+
+
+            </div>
+          </div>
+
+        </div>
+<div class="row">
+ <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+
+
+     <h4><span class="label label-default">Chinese</span></h4>
+
+
+
+
+</div>
+<div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+<h4><span class="label label-default">Thai food</span></h4>
+
+</div>
+<div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+  <h4><span class="label label-default">American</span></h4>
+
+</div>
+
+<div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+<h4><span class="label label-default">Macrons</span></h4>
+
+</div>
+
+
+      </div>
+      <div class="row">
+       <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+
+
+           <h4><span class="label label-default">Indian</span></h4>
+
+
+
+
+      </div>
+      <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+      <h4><span class="label label-default">Thai food</span></h4>
+
+      </div>
+      <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+        <h4><span class="label label-default">Noodles</span></h4>
+
+      </div>
+
+      <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+      <h4><span class="label label-default">C offee</span></h4>
+
+      </div>
+
+
+            </div>
+            <div class="row">
+             <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+
+
+                 <h4><span class="label label-default">S ush i</span></h4>
+
+
+
+
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+            <h4><span class="label label-default">Japanese</span></h4>
+
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">pizzeria</span></h4>
+
+            </div>
+
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+            <h4><span class="label label-default">Burgers</span></h4>
+
+            </div>
+
+
+                  </div>
+    </div>
+</div>
+</div>
+
+
+    <!-- HIDDEN / POP-UP DIV -->
+    <div id="pop-up">
+      <h3>What A Grade means for Restaurant..</h3>
+      <p>
+        A letter grade of 'A' indicates that a restaurant received 13 or fewer health code violations in their last inspection. Any recorded violations are likely to be technicalities or non-critical infractions, such as "Non-food contact surface improperly constructed;"
+        "Lighting inadequate;" or "Canned food product observed severely dented."
+      </p>
+    </div>
+
+
+
+
+    <script>
+EncrptPassword();
+function EncrptPassword () {
+var salt = randomString()
+pass ='sajjad'
+alert('salt ' + salt)
+alert(sha256(pass));
+//var pass =document.getElementById('InputPassword').value
+    var pass = sha256(pass + salt)
+alert('with ' + pass);
+}
+function randomString() {
+    var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    var string_length = 15;
+    var randomstring = '';
+    for (var i=0; i<string_length; i++) {
+        var rnum = Math.floor(Math.random() * chars.length);
+        randomstring += chars.substring(rnum,rnum+1);
+    }
+      return randomstring;
+//document.randform.randomfield.value = randomstring;
+}
+
+
+  function intialize() {
+        document.getElementById('imgpanelhead').innerHTML = "Foods.."
+      }
+
+      var client = algoliasearch('U8GYLSQ3UQ', '6a8a63dbe4fbab51d9948234030a22ca');
+      var index = client.initIndex('RESTAURANTS');
+      var textBox = document.getElementById("todo");
+      var resultsView = document.getElementById('results');
+
+      textBox.addEventListener('keyup', function(event) {
+        var value = event.target.value;
+        index.search(value, function(err, result) {
+          renderSearchResults(result.hits)
+        })
+      })
+      var id = 0
+
+      function renderSearchResults(restaurants) {
+        var address;
+
+        var results = document.getElementById('results');
+       results.innerHTML = " ";
+        restaurants.forEach(function(restaurant) {
+          var phone = phoneNo(restaurant.phone)
+          var id = restaurant.camis
+          results.insertAdjacentHTML('beforeend', '<div class="panel panel-default" style="padding-left:0;padding-right:0;padding:0;">' +
+
+            '<div class="panel-heading panelhead2" class= "res-main" style:border:0;"><p id="n" class="res-name"><span class="glyphicon glyphicon-glass"></span>' + restaurant.name + '</p></div>' +
+
+            '<div class="panel-body panelbody2">' + '<div class="row">' +
+
+            '<div class ="res-street"><p class="street">' + 'Cuisine: ' + restaurant.cuisineDescription + '</p></div>' +
+            '<div class ="res-street"><p class="street">' + ' Street: ' + restaurant.street + '<br>' +
+             'zipcode: ' + restaurant.zipCode + '<br>' +
+              'Phone: ' + phone + '</p></div></div></div></div>' +
+
+            '<div class="row" id="grad1" style="width:98%;vertical-align:center;border: 3px solid orange;height:50px;"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn pull-right btn-danger btn-sm"   onclick="getReport(' +
+            "'" + id + "'" + ');onmouseup=this.blur();">2017</button>' +
+            '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn pull-left btn-danger btn-sm" style="width:auto;">2016</button></div></div>')
+          var myid = id.toString()
+
+          results.insertAdjacentHTML('beforeend', '<p id=' + '"' + myid + '"' + '></p>')
+
+        });
+
+      }
+
+      function getReport(id) {
+        let promise = getdata(id);
+        promise.then(suceeded, failed);
+      }
+
+      function suceeded(result) {
+        var details = JSON.parse(result);
+        report.innerHTML = ""
+        var vgrade = "";
+        var vname = "";
+        var phone = phoneNo(details.phone)
+        document.getElementById("imgpanelhead").innerHTML = "Location-MAP"
+        //report.insertAdjacentHTML('beforeend', '<p id="img>"')
+        details.inspections.forEach(function(detail) {
+          var y = new Date(detail.inspectionDate);
+          y = y.getFullYear();
+
+          if (vname == "" & detail.name !== "") {
+
+
+            report.insertAdjacentHTML('beforeend', '<p class="name2" id="name2" style="text-align:left;">' + details.name + '</p><img src="./fork2.png" style="width=80px;height:80px;"></p>')
+            report.insertAdjacentHTML('beforeend', '<p class="cusine" style="font-size:20px;font-style:normal;text-align:left;">' + "Cuisine: " + details.cuisineDescription + '</p>')
+            report.insertAdjacentHTML('beforeend', '<p class="street" style="font-style:normal;text-align:left">' + "Address: " + details.building + ", " + details.street + '</p>')
+            report.insertAdjacentHTML('beforeend', '<p class="zipcode" style="font-style:normal;text-align:left">' + "zipcode: " + details.zipCode + ", " + phone + '</p>')
+
+
+            vname = detail.name;
+          }
+          if (y === 2017) {
+
+
+            if (vgrade == "" & detail.grade !== "") {
+              report.insertAdjacentHTML('beforeend', '<p class="grade">' + detail.grade + '</p>')
+              vgrade = detail.grade
+            }
+            // format the date in javascript
+
+            var formattedDate = new Date(detail.inspectionDate);
+            var d = formattedDate.getDate();
+            var m = formattedDate.getMonth();
+            m += 1; // JavaScript months are 0-11
+            var y = formattedDate.getFullYear();
+
+            formattedDate = d + "/" + m + "/" + y;
+            report.insertAdjacentHTML('beforeend', '<p id ="inspectionDate">' + formattedDate + '</p>')
+            report.insertAdjacentHTML('beforeend', '<p id="action">' + detail.action + '</p>')
+            report.insertAdjacentHTML('beforeend', '<p class="violationCode">' + detail.violationCode + '</p>')
+            report.insertAdjacentHTML('beforeend', '<p id ="inspectionType">' + detail.inspectionType + '</p>')
+            //report.insertAdjacentHTML('beforeend', '<p class ="address" id ="addr">' + details.street + '</p>')
+            report.insertAdjacentHTML('beforeend', '<hr class="hrline">')
+          }
+        });
+        var address = details.building + " " + details.name + ", " + details.street + ", NY" + ", " + details.zipCode
+
+        reloadMap(address);
+        $("html, body").scrollTop($('#report').offset().top - 300);
+        // <-- Also integer can be used
+
+        //  window.scroll(50, findPos(document.getElementById("report")));
+        //document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+        $(document).ready(function() {
+          $(".name2").fadeOut(4000);
+          $(".name2").fadeIn(4000);
+        });
+
+      }
+
+      function failed(error) {
+        console.log(error)
+      }
+      //report.innerHtml = ""
+      //.forEach(function(restauran
+
+      function getMapJason(url) {
+        let promise = getdata(url)
+      }
+
+      function getdata(id) {
+        // Return a new promise.
+        return new Promise(function(resolve, reject) {
+          var req = new XMLHttpRequest();
+          //  var id = document.getElementById("camis").value//Do the usual XHR stuff
+          url = "/sajuh/" + id
+          req.open('GET', url);
+          req.onload = function() {
+            // This is called even on 404 etc
+            // so check the status
+            if (req.status == 200) {
+              // Resolve the promise with the response text
+              resolve(req.response);
+              //return JSON.parse(req.response);
+            } else {
+              // Otherwise reject with the status text
+              // which will hopefully be a meaningful error
+              reject(Error(req.statusText));
+            }
+          };
+          // Handle network errors
+          req.onerror = function() {
+            reject(Error("Network Error"));
+          }
+          // Make the request
+          req.send();
+        });
+      }
+
+      function reloadMap(street) {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: {
+            lat: -34.397,
+            lng: 150.644
+          }
+        });
+        var geocoder = new google.maps.Geocoder();
+        // document.getElementById('submit').addEventListener('click', function() {
+        geocodeAddress(geocoder, map, street);
+        //  });
+      }
+
+      function geocodeAddress(geocoder, resultsMap, street) {
+        var address = street;
+        geocoder.geocode({
+          'address': address
+        }, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+
+      function phoneNo(phone) {
+        var str = String(phone)
+        var patt1 = /\d/g;
+        var phone = str.match(patt1);
+        if (phone==null) {phone=0;}
+        if (phone.length == 10) {
+          phone = phone.toString();
+          phone = phone.replace(/,/g, '');
+          return '(' + phone.substring(0, 3) + ') ' + phone.substring(3, 6) + '-' + phone.substring(6, 10);
+        } else {
+          return "Not available.."
+        }
+      }
+
+      //Finds y value of given object
+      function findPos(obj) {
+        var curtop = 0;
+        if (obj.offsetParent) {
+          do {
+            curtop += obj.offsetTop;
+          } while (obj = obj.offsetParent);
+          return [curtop];
+        }
+      }
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<style>
+@media screen and (max-width:480px){
+
+.burger-nav {
+display:block;
+height: 40px;
+width:100%;
+background-color: #404040;
+background: url(/images/burger.png) norepeat 98% center;
+}
+
+}
+</style>
