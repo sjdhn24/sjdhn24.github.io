@@ -609,7 +609,9 @@ p#intro2 {
      $('div#firstpage').hide();
      $(document).ready(function() {
      $('nav-small a').click(function() {
+     $('#small-details #rest').css('display','none');
      $('nav-small ul').toggleClass('open');
+
      });
 
      });
@@ -637,13 +639,20 @@ p#intro2 {
 
     $(document).ready(function() {
     $('#DivPrabhu a').click(function(){
-          $('#mainpage').clone().appendTo('#small-details');
-          //$("img#bigimg").attr({width: "100", height: "150"});
-            $("img#bigimg").hide();
-            $("img#bigimg2").hide();
-            $(".sanitary").hide();
-            $("span#san2").hide();
 
+      var main =  $('#mainpage').clone();
+       //$("#mainpage .row #Divsan").detach();
+
+          $('#mainpage .row #rest').clone().appendTo('#small-details');
+           //$('body').append(main);
+          //$("img#bigimg").attr({width: "100", height: "150"});
+          //$("#mainpage .row #Divfork").detach();
+           //$('nav-small ul').height(0);
+            // $("img#bigimg").hide();
+            //$("img#bigimg2").hide();
+            //$(".sanitary").hide();
+            //$("span#san2").hide();
+      $('nav-small ul').removeClass("open");
 return false;
 //          $('#mainpage').css('display','block');
 
@@ -736,8 +745,7 @@ return false;
   </nav>
   <div class="container-fluid" id="mainpage">
     <div class="row">
-      <div class="col-sm-12 col-md-3 col-xs-12 col-lg-3" style="padding-left:40px;">
-
+      <div id="Divsan" class="col-sm-12 col-md-3 col-xs-12 col-lg-3" id = "mainpage-col1" style="padding-left:40px;">
         <img src="/images/san.jpg" id="bigimg"><br>
         <span id="san1">[Image from NYC-Health Dept.]</span><br><br>
         <span class="label label-danger sanitary" id="san2" style="font-size:18px;">Look for above Certificate</span><span class="glyphicon glyphicon-hand-up"></span><br>
@@ -769,7 +777,7 @@ return false;
         </p>
       </div>
 
-      <div class="col-sm-12 col-md-3 col-xs-12 col-lg-3" style="padding-left:60px;">
+      <div id="Divfork" class="col-sm-12 col-md-3 col-xs-12 col-lg-3" style="padding-left:60px;">
         <img src="/images/fork.png"  id="bigimg2">
       </div>
     </div>
