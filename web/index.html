@@ -533,11 +533,10 @@ margin-left:15px;
 }
 
 #DivPrabhu a:hover{
-text-decoration:underline;
+text-decoration:none;
 }
 
 #DivMain{
-display: inline-block;
 width:100%;
 height:50px;
 background-color:red;
@@ -547,12 +546,10 @@ float:left;
 position:relative;
 display:inline-block;
 width:100%;
-
 float: left;
 background-color: #404040;
 height:50px;
 background:: url("images/brand1.png") no-repeat 70% center;
-
 }
 .input-group {
 padding: 10px;
@@ -560,7 +557,6 @@ padding: 10px;
 
 nav-small ul {
 overflow: hidden;
-
 height:0;
 background-color: #505050;
 }
@@ -568,18 +564,16 @@ nav-small ul.open {
 height:auto;
 }
 nav-small ul li {
-float:none;
 list-style-type: none;
 text-align: left;
 width:100%;
 margin:0
-
-
 }
 
 nav-small ul li a {
 color: #fff;
-padding:10px;
+padding:5px;
+height:40px;
 border-bottom: 1px solid #404040;
 display: block;
 margin:0;
@@ -593,6 +587,7 @@ p#intro2 {
    padding-top: 0px;
 
   }
+
 
 }
 
@@ -653,15 +648,11 @@ p#intro2 {
             //$(".sanitary").hide();
             //$("span#san2").hide();
       $('nav-small ul').removeClass("open");
+
 return false;
 //          $('#mainpage').css('display','block');
 
 }); });
-
-
-
-
-
     $(document).ready(function() {
      $('.dropdown-menu li a').click(function() {
 
