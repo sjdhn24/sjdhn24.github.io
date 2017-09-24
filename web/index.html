@@ -532,6 +532,7 @@ font-size:20px;
 }
 #flip {
     padding: 5px;
+
     text-align: center;
     background-color: #e5eecc;
     border: solid 1px #c3c3c3;
@@ -625,7 +626,9 @@ p#intro2 {
   $(document).ready(function(){
     $(".tap").click(function(){
     $("#small-details-2").slideToggle("slow");
-   $("")
+
+    $(".tap").text('Close Items')
+
 //   $("#small-details-2").css('display','block');
         //  $("#small-details-2").slideDown();
       });
@@ -1146,12 +1149,16 @@ p#intro2 {
         $(DispScr).css('display','block');
         $(DispMap).css('display','block');
 
+
+
         $(".name2").fadeOut(4000);
         $(".name2").fadeIn(4000);
         $("html, body").scrollTop($("#DivHeader").offset().top);
 
       $("#small-details-2").slideToggle("slow");
       $("#flip").css('display','block')
+
+     $('.tap').text('Open Search Items');
 
 
 
