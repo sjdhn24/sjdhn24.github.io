@@ -485,6 +485,13 @@ display: none;
 display:block;
 }
 
+#small-Report {
+padding: 5px;
+
+
+}
+
+
 #DivHeader
 {
 position:relative;
@@ -522,6 +529,14 @@ font-weight:bold;
 #SpSlogan
 {
 font-size:20px;
+}
+#flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+    width:100%;
+    display: none;
 }
 
 #DivPrabhu{
@@ -606,9 +621,21 @@ p#intro2 {
 /* mobile end */
   </style>
   <script>
-    function dispmain() {
-      $('div#firstpage').hide();
+  $(document).ready(function(){
+    $(".tap").click(function(){
+    $("#small-details-2").slideToggle("slow");
+   $("")
+//   $("#small-details-2").css('display','block');
+        //  $("#small-details-2").slideDown();
+      });
+  });
 
+
+    function dispmain() {
+
+
+
+      $('div#firstpage').hide();
       $('div#mainpage').show();
     }
 
@@ -618,6 +645,8 @@ p#intro2 {
      $('#small-details #rest').css('display','none');
     $('#small-details-2').css('display','none');
     $('#Small-Report').css('display','none');
+   $('#flip').css('display','none');
+
 
 
      $('nav-small ul').toggleClass('open');
@@ -653,6 +682,7 @@ p#intro2 {
       $('#Small-Report').css('display','none')
       $('#small-details').css('display','block');
      $('#small-Map').css('display','none')
+     $('#flip').css('display','none');
 
 
       var main =  $('#mainpage').clone();
@@ -679,6 +709,7 @@ p#intro2 {
        $('#Small-Report').css('display','none');
        $('#small-details').css('display','none');
        $('#small-Map').css('display','none')
+       $('#flip').css('display','none');
          var value1 = $(this).text();
 
         var client = algoliasearch('U8GYLSQ3UQ', '6a8a63dbe4fbab51d9948234030a22ca');
@@ -1027,12 +1058,12 @@ p#intro2 {
           '<div class="panel-body panelbody2">' + '<div class="row">' +
 
           '<div class ="res-street"><p class="street">' + 'Cuisine: ' + restaurant.cuisineDescription + '</p></div>' +
-          '<div class ="res-street"><p class="street">' + ' Street: ' + restaurant.street + '<br>' +
+          '<div class ="res-street"><p class="street">' +  restaurant.building + ","  + '  ' + restaurant.street + '<br>' +
           'zipcode: ' + restaurant.zipCode + '<br>' +
           'Phone: ' + phone + '</p></div></div></div></div>' +
 
           '<div class="row" id="grad1" style="width:98%;vertical-align:center;border: 3px solid orange;height:50px;"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn pull-right btn-danger btn-sm"   onclick="getReport('+
-          "'" + id + "'" + "," + "'" + ScreenType + "'" + ');onmouseup=this.blur();">2017</button>' +
+          "'" + id + "'" + "," + "'" + ScreenType + "'" + ');onmouseup=this.blur();" id="but2017">2017</button>' +
           '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn pull-left btn-danger btn-sm" style="width:auto;">2016</button></div></div>')
         var myid = id.toString()
 
@@ -1110,11 +1141,6 @@ p#intro2 {
       var address = details.building + " " + details.name + ", " + details.street + ", NY" + ", " + details.zipCode
 
       reloadMap(address,DispMap);
-      // <-- Also integer can be used
-
-      //  window.scroll(50, findPos(document.getElementById("report")));
-      //document.body.scrollTop = document.documentElement.scrollTop = 0;
-
       $(document).ready(function() {
         $(DispScr).css('display','block');
         $(DispMap).css('display','block');
@@ -1122,6 +1148,17 @@ p#intro2 {
         $(".name2").fadeOut(4000);
         $(".name2").fadeIn(4000);
         $("html, body").scrollTop($(DispScr).offset().top - 350);
+
+      $("#small-details-2").slideToggle("slow");
+      $("#flip").css('display','block')
+
+
+
+
+
+
+
+
 
       });
 
@@ -1272,10 +1309,6 @@ p#intro2 {
      <li><a href="#">Afghan</a></li>
      <li><a href="#">French</a></li>
 
-
-
-
-
 <ul>
   <nav>
   </div>
@@ -1285,6 +1318,9 @@ p#intro2 {
 <div id="small-details-2">
 
 </div>
+<div id="flip">
+<button class="tap">Open Search Items</button>
+</div>
 
 <div id="Small-Report">
 
@@ -1292,11 +1328,6 @@ p#intro2 {
 <div id="small-Map">
 
 </div>
-
-
-
-
-
 
 </body>
 
