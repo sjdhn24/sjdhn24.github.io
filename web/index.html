@@ -25,18 +25,15 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjMb6Od7hkOybPXNxnzI_rhbQMKJErHxo"></script>
 
   <style>
-  /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
 
     html,
     body {
       width: 100%;
       height: 100%;
       background-color: white;
-
     }
-#smallScreen {
-display: none;
-}
+
 
     .row {
       margin-left: 5px;
@@ -68,12 +65,6 @@ display: none;
       border: 1px;
     }
 
-    #small-Map {
-      min-height: 350px;
-      width: 100%;
-      height: 50%;
-      border: 1px;
-    }
 
     . .header {
       background-color: #f44336;
@@ -140,17 +131,15 @@ display: none;
       padding-right: 0px;
     }
 
-.grade {
-font-size:18px
-font-family: helvetica,Arial,sans-serif;
-color:green;
-text-shadow: 2px 2px 8px #FF0000;
-
-}
+    .grade {
+      font-size: 18px font-family: helvetica, Arial, sans-serif;
+      color: green;
+      text-shadow: 2px 2px 8px #FF0000;
+    }
 
     .res-name {
-      color:#daef17;
-      font-family: cursive,veradana,sans-serif;
+      color: #daef17;
+      font-family: cursive, veradana, sans-serif;
       font-weight: lighter;
       font-style: oblique;
       font-weight: bold;
@@ -233,453 +222,454 @@ text-shadow: 2px 2px 8px #FF0000;
 
 
 
-    .grade {
-      font-size: 50px;
-      font-family: fantasy;
-      font-weight: 80px;
-      color: maroon;
-      text-shadow: 2px 2px 8px #FF0000;
+      .grade {
+        font-size: 50px;
+        font-family: fantasy;
+        font-weight: 80px;
+        color: maroon;
+        text-shadow: 2px 2px 8px #FF0000;
+      }
+
+      .violationCode {
+        font-size: 40px;
+        font-family: sans-serif;
+        font-weight: 120px;
+        color: red;
+      }
     }
 
-    .violationCode {
-      font-size: 40px;
+    #inspectionType,
+    #action,
+    #inspectionDate {
+      font-size: 15px;
       font-family: sans-serif;
-      font-weight: 120px;
+      font-weight: 40px;
+      color: maroon;
+    }
+
+    .navbar-inverse {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      background: linear-gradient(to right, #f90c28 20%, #ff3300);
+      margin-top: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .navbar-default {
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      background: linear-gradient(to right, #f90c28 20%, #ff3300);
+    }
+    li {
+      border-right: 1px solid white;
+    }
+
+    li:last-child {
+      border-right: none;
+    }
+
+
+    ul.navbar-nav>li.home>a {
+      color: white;
+
+      font-size: 14px;
+
+      text-align: center;
+      padding: 14px 16px;
+    }
+
+    ul.navbar-nav>li.home>a:hover {
+      color: yellow;
+    }
+
+    .dropdown-menu {
+      width: 250px;
+      margin: 5px 0;
+      overflow: hidden;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: black;
+    }
+
+    .navbar-nav>.open .dropdown-menu {
+      color: white;
+      background-color: #3344ff;
+    }
+
+    .dropdown-menu>li a:hover {
+      background-color: red;
+    }
+
+    .name2 {
       color: red;
+      font-size: 30px;
+      font-family: sans-serif;
+      font-weight: bold;
     }
-  }
-  #inspectionType,
-  #action,
-  #inspectionDate {
-    font-size: 15px;
-    font-family: sans-serif;
-    font-weight: 40px;
-    color: maroon;
-  }
-  .navbar-inverse {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    background: linear-gradient(to right, #f90c28 20%, #ff3300);
-    margin-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
-  .navbar-default {
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-    background: linear-gradient(to right, #f90c28 20%, #ff3300);
-  }
 
 
 
-
-  li {
-    border-right: 1px solid white;
-  }
-  li:last-child {
-    border-right: none;
-  }
-
-
-  ul.navbar-nav > li.home > a {
-    color: white;
-
-    font-size: 14px;
-
-    text-align: center;
-    padding: 14px 16px;
-
-  }
-
-  ul.navbar-nav > li.home > a:hover {
-  color: yellow;
-  }
-
-  .dropdown-menu {
-    width: 250px;
-    margin: 5px 0;
-    overflow: hidden;
-  }
-
-  .divider {
-    height: 1px;
-    background-color: black;
-  }
-
-  .navbar-nav > .open .dropdown-menu {
-    color:white;
-    background-color: #3344ff;
-
-  }
-
-  .dropdown-menu>li a:hover {
-    background-color: red;
-  }
-  .name2 {
-    color: red;
-    font-size: 30px;
-    font-family: sans-serif;
-    font-weight: bold;
-  }
-
-
-
-  h3 {
-    color: #f45342;
-    font-weight: bold;
-    font-family: sans-serif;
-    text-decoration: underline;
-    text-decoration-color: black;
-  }
-
-  p {
-    line-height: 1.5;
-  }
-
-
-
-  @media screen and (min-width: 770px) {
-    #todo {
-      width: 450px;
-      border:1px solid orange;
-
+    h3 {
+      color: #f45342;
+      font-weight: bold;
+      font-family: sans-serif;
+      text-decoration: underline;
+      text-decoration-color: black;
     }
-  }
 
-  #mainhead {
-
-    padding-top: 20px padding: 0;
-    border-top: 0;
-    text-shadow: 5px 5px 10px black;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 200;
-    font-family: sans-serif;
-    color: yellow;
-  }
-  #grad1 {
-
-
-    padding: 0;
-    height: 75px;
-    background: red;
-    /* For browsers that do not support gradients */
-
-    background: -webkit-linear-gradient(red, maroon);
-    /* For Safari 5.1 to 6.0 */
-
-    background: -o-linear-gradient(red, maroon);
-    /* For Opera 11.1 to 12.0 */
-
-    background: -moz-linear-gradient(red, maroon);
-    /* For Firefox 3.6 to 15 */
-
-    background: linear-gradient(red, maroon);
-    /* Standard syntax (must be last) */
-  }
-
-  .bigimg {
-    width: 350px;
-    height: 350x;
-  }
-
-  .tooltip {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: left;
-    text-align: start;
-    text-decoration: none;
-    text-shadow: none;
-    text-transform: none;
-    letter-spacing: normal;
-    word-break: normal;
-    word-spacing: normal;
-    word-wrap: normal;
-    white-space: normal;
-    /* ... */
-  }
-  .tooltip .tooltip-inner {
-    max-width: 200px;
-    padding: 3px 8px;
-    color: #fff;
-    text-align: center;
-    background-color: #000;
-    border-radius: 4px;
-  }
-  .label-default {
-    background-color: #999;
-  }
-  .label-default[href]:hover,
-  .label-default[href]:focus {
-    background-color: #808080;
-  }
-  div#firstpage {
-    display: none;
-  }
-
-  div#mainpage {
-
-    margin-top: 100px;
-    margin-left: 20px margin-right:20px;
-  }
-  p#intro1 {
-    font-size: 22px;
-    font-family: font-family: Helvetica, sans-serif;
-    font-weight: normal;
-    color: white;
-    letter-spacing: 1px;
-    padding-top: 40px;
-  }
-  p#intro2 {
-    color: #ead79f;
-    font-size: 20px;
-    font-weight: normal;
-    font-family: font-family: Helvetica, sans-serif;
-    letter-spacing: 1px;
-  }
-  h1#head1 {
-    color: #ef6a45;
-    font-weight: 100;
-    font-family: font-family: Helvetica, sans-serif;
-    text-shadow: 5px 5px 10px black;
-    letter-spacing: 1px;
-
-  }
-.sanitary { font-size: 18px;
-    font-family: Helvetica, sans-serif;
-    font-weight: normal;
-    letter-spacing: 1px;
-    box-shadow: 10px 10px 5px #888888;
-
+    p {
+      line-height: 1.5;
     }
-  h2#head2 {
-    color: #ef6a45;
-    font-size: 16px font-weight: bold;
-    font-family: monospace, sans-serif;
-    text-shadow: 5px 5px 10px black;
-    letter-spacing: 1px;
-  }
-  div#rest,img#bigimg {
-    -webkit-box-shadow: 10px 10px 5px #888888;
-    -moz-box-shadow: 10px 10px 5px #888888;
-    box-shadow: 10px 10px 5px #888888;
-  }
-  .column.small-centered {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-/* mobile start */
-@media screen and (max-width:1024px) {
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    margin-top: 0;
-  }
-#bigScreen {
-display: none;
-}
-#smallScreen {
-display:block;
-position:fixed;
-}
-
-div#smallScreen {
-
-z-index: 999;
-}
-
-div#flip {
-padding-top:200px;
-
-}
-#small-Report {
-padding: 5px;
-
-
-}
-#DivHeader
-{
-position:relative;
-display:inline-block;
-
-width:100%;
-font-family: Century Gothic, sans-serif;
-background-color:#3b5998;
-float:left;
-
-  }
-
-#DivLogo
-{
-position:relative;
-float:left;         /*please remove this property and run*/
-padding-bottom:10px;
-padding-top:10px
-}
-
-.Logo
-{
-margin-left:20px;
-margin-right:20px;
-color:#fff;
-}
-
-#SpLogo
-{
-
-font-size:35px;
-font-weight:bold;
-}
-
-#SpSlogan
-{
-font-size:20px;
-}
-#flip {
-    padding: 5px;
-
-    text-align: center;
-    background-color: #e5eecc;
-    border: solid 1px #c3c3c3;
-    width:100%;
-    display: none;
-}
-
-#DivPrabhu{
-
-position:absolute;
-right:20px;
-bottom:10px;
-font-size:13px;
-font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
-}
-
-
-#DivPrabhu a{
-text-decoration:none;
-color:#fff;
-margin-left:15px;
-}
-
-#DivPrabhu a:hover{
-text-decoration:none;
-}
-
-#DivMain{
-width:100%;
-height:50px;
-background-color:red;
-float:left;
-}
-.burger-nav {
-position:relative;
-display:inline-block;
-width:100%;
-float: left;
-background-color: #404040;
-height:50px;
-
-/*background: url("images/bur.png") no-repeat 70% center;*/
-
-
-}
 
 
 
+    @media screen and (min-width: 1370px) {
+      #todo {
+        width: 450px;
+        border: 1px solid orange;
+      }
+
+     div#firstpage {display: none;}
+
+      div#SmlScreenContainer,#butTap
+       {
+        display: none;
+      }
+    }
+
+    #mainhead {
+
+      padding-top: 20px padding: 0;
+      border-top: 0;
+      text-shadow: 5px 5px 10px black;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 200;
+      font-family: sans-serif;
+      color: yellow;
+    }
+
+    #grad1 {
 
 
-.input-group {
-padding: 10px;
-}
+      padding: 0;
+      height: 75px;
+      background: red;
+      /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(red, maroon);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(red, maroon);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(red, maroon);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(red, maroon);
+      /* Standard syntax (must be last) */
+    }
 
-nav-small ul {
-overflow: hidden;
-margin:0;
-height:0;
-background-color: #505050;
-}
-nav-small ul.open {
-height:auto;
-}
-nav-small ul li {
-list-style-type: none;
-text-align: left;
-width:100%;
-margin:0
-}
+    .bigimg {
+      width: 350px;
+      height: 350x;
+    }
 
-nav-small ul li a {
-color: #fff;
-padding:5px;
-height:40px;
-border-bottom: 1px solid #404040;
-display: block;
-margin:0;
+    .tooltip {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1.42857143;
+      text-align: left;
+      text-align: start;
+      text-decoration: none;
+      text-shadow: none;
+      text-transform: none;
+      letter-spacing: normal;
+      word-break: normal;
+      word-spacing: normal;
+      word-wrap: normal;
+      white-space: normal;
+      /* ... */
+    }
+
+    .tooltip .tooltip-inner {
+      max-width: 200px;
+      padding: 3px 8px;
+      color: #fff;
+      text-align: center;
+      background-color: #000;
+      border-radius: 4px;
+    }
+
+    .label-default {
+      background-color: #999;
+    }
+
+    .label-default[href]:hover,
+    .label-default[href]:focus {
+      background-color: #808080;
+    }
+
+
+    div#mainpage {
+      margin-top: 100px;
+      margin-left: 20px margin-right:20px;
+    }
+
+    p#intro1 {
+      font-size: 22px;
+      font-family: font-family: Helvetica, sans-serif;
+      font-weight: normal;
+      color: white;
+      letter-spacing: 1px;
+      padding-top: 40px;
+    }
+
+    p#intro2 {
+      color: #ead79f;
+      font-size: 20px;
+      font-weight: normal;
+      font-family: font-family: Helvetica, sans-serif;
+      letter-spacing: 1px;
+    }
+
+    h1#head1 {
+      color: #ef6a45;
+      font-weight: 100;
+      font-family: font-family: Helvetica, sans-serif;
+      text-shadow: 5px 5px 10px black;
+      letter-spacing: 1px;
+    }
+
+    .sanitary {
+      font-size: 18px;
+      font-family: Helvetica, sans-serif;
+      font-weight: normal;
+      letter-spacing: 1px;
+      box-shadow: 10px 10px 5px #888888;
+    }
+
+    h2#head2 {
+      color: #ef6a45;
+      font-size: 16px font-weight: bold;
+      font-family: monospace, sans-serif;
+      text-shadow: 5px 5px 10px black;
+      letter-spacing: 1px;
+    }
+
+    div#rest,
+    img#bigimg {
+      -webkit-box-shadow: 10px 10px 5px #888888;
+      -moz-box-shadow: 10px 10px 5px #888888;
+      box-shadow: 10px 10px 5px #888888;
+    }
+
+    .column.small-centered {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* mobile start */
+
+    @media screen and (max-width:1369px) {
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        margin-top: 0;
+      }
+
+     #bigScreen {
+    display:none;
 }
 
-p#intro2 {
-  color: #ead79f;
-  font-size: 14px;}
-  p#intro1 {
-    font-size: 16px;
-   padding-top: 0px;
+      #smallScreen {
+        display: block;
+        position: fixed;
+      }
+      #small-Map {
+        min-height: 350px;
+        width: 100%;
+        height: 50%;
+        border: 1px;
+      }
 
-  }
+
+      div#smallScreen {
+
+        z-index: 999;
+      }
+      #small-Report {
+        padding: 5px;
+      }
+      #DivHeader {
+        position: relative;
+        display: inline-block;
+
+        width: 100%;
+        font-family: Century Gothic, sans-serif;
+        background: -webkit-linear-gradient(red, maroon);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(red, maroon);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(red, maroon);
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(red, maroon);
+        float: left;
+      }
+
+      #DivLogo {
+        position: relative;
+        float: left;
+        /*please remove this property and run*/
+        padding-bottom: 10px;
+        padding-top: 10px
+      }
+
+      .Logo {
+        margin-left: 20px;
+        margin-right: 20px;
+        color: #fff;
+      }
+
+      #SpLogo {
+
+        font-size: 35px;
+        font-weight: bold;
+      }
+
+      #SpSlogan {
+        font-size: 20px;
+      }
+      #flip {
+        positon.fixed;
+        padding: 5px;
+        padding-top: 200px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+        width: 100%;
+        display: none;
+      }
+
+      #DivPrabhu {
+
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+        font-size: 13px;
+        font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+      }
 
 
-}
+      #DivPrabhu a {
+        text-decoration: none;
+        color: #fff;
+        margin-left: 15px;
+      }
+
+      #DivPrabhu a:hover {
+        text-decoration: none;
+      }
+
+      #DivMain {
+        width: 100%;
+        height: 50px;
+        background-color: red;
+        float: left;
+      }
+      .burger-nav {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        float: left;
+        background-color: #404040;
+        height: 50px;
+        /*background: url("images/bur.png") no-repeat 70% center;*/
+      }
 
 
-/* mobile end */
+      .input-group {
+        padding: 10px;
+      }
+
+      nav-small ul {
+        overflow: hidden;
+        margin: 0;
+        height: 0;
+        background-color: #505050;
+      }
+      nav-small ul.open {
+        height: auto;
+      }
+      nav-small ul li {
+        list-style-type: none;
+        text-align: left;
+        width: 100%;
+        margin: 0
+      }
+
+      nav-small ul li a {
+        color: #fff;
+        padding: 5px;
+        height: 40px;
+        border-bottom: 1px solid #404040;
+        display: block;
+        margin: 0;
+      }
+
+      p#intro2 {
+        color: #ead79f;
+        font-size: 14px;
+      }
+      p#intro1 {
+        font-size: 16px;
+        padding-top: 0px;
+      }
+    }
+    /* mobile end */
   </style>
   <script>
-  $(document).ready(function(){
-    $(".tap").click(function(){
-    $("#small-details-2").slideToggle("slow");
+    $(document).ready(function() {
+      $(".tap").click(function() {
+        $("#small-details-2").slideToggle("slow");
 
 
 
-//   $("#small-details-2").css('display','block');
+        //   $("#small-details-2").css('display','block');
         //  $("#small-details-2").slideDown();
       });
-  });
+    });
 
 
     function dispmain() {
-
-
-
-      $('div#firstpage').hide();
-      $('div#mainpage').show();
+       $('#firstpage').hide();
+      $('#mainpage').show();
     }
 
-     $('div#firstpage').hide();
-     $(document).ready(function() {
-     $('nav-small a').click(function() {
-     $('#small-details #rest').css('display','none');
-    $('#small-details-2').css('display','none');
-    $('#Small-Report').css('display','none');
-   $('#flip').css('display','none');
+    $('#firstpage').hide();
+    $('#SmlScreenContainer').hide();
+
+    $(document).ready(function() {
+      $('nav-small a').click(function() {
+        $('#small-details #rest').css('display', 'none');
+        $('#small-details-2').css('display', 'none');
+        $('#Small-Report').css('display', 'none');
+        $('#flip').css('display', 'none');
 
 
 
-     $('nav-small ul').toggleClass('open');
+        $('nav-small ul').toggleClass('open');
 
-     });
+      });
 
-     });
+    });
 
     $(function() {
       var moveLeft = -100;
@@ -698,50 +688,39 @@ p#intro2 {
     });
 
 
-  //  $(document).ready(function() {
+    //  $(document).ready(function() {
     //  $('[data-toggle="tooltip"]').tooltip();
     //});
 
     $(document).ready(function() {
-    $('#DivPrabhu a').click(function(){
-      $('#small-details-2').css('display','none');
-      $('#Small-Report').css('display','none')
-      $('#small-details').css('display','block');
-     $('#small-Map').css('display','none')
-     $('#flip').css('display','none');
+      $('#DivPrabhu a').click(function() {
+        $('#small-details-2').css('display', 'none');
+        $('#Small-Report').css('display', 'none')
+        $('#small-details').css('display', 'block');
+        $('#small-Map').css('display', 'none')
+        $('#flip').css('display', 'none');
 
 
-      var main =  $('#mainpage').clone();
-       //$("#mainpage .row #Divsan").detach();
+        $('#mainpage .row #rest').clone().appendTo('#small-details');
 
-          $('#mainpage .row #rest').clone().appendTo('#small-details');
+        $('nav-small ul').removeClass("open");
 
-         //$('body').append(main);
-          //$("img#bigimg").attr({width: "100", height: "150"});
-          //$("#mainpage .row #Divfork").detach();
-           //$('nav-small ul').height(0);
-            // $("img#bigimg").hide();
-            //$("img#bigimg2").hide();
-            //$(".sanitary").hide();
-            //$("span#san2").hide();
-      $('nav-small ul').removeClass("open");
 
-       $('#mainpage').css('display','block');
-
-}); });
+      });
+    });
     $(document).ready(function() {
-     $('nav-small ul li a').click(function()  {
-       $('#small-details-2').css('display','block');
-       $('#Small-Report').css('display','none');
-       $('#small-details').css('display','none');
-       $('#small-Map').css('display','none')
-       $('#flip').css('display','block');
-         var value1 = $(this).text();
+      $('nav-small ul li a').click(function() {
+        $('#small-details-2').css('display', 'block');
+        $('#Small-Report').css('display', 'none');
+        $('#small-details').css('display', 'none');
+        $('#small-Map').css('display', 'none')
+        $('#flip').css('display', 'block');
+        var value1 = $(this).text();
 
         var client = algoliasearch('U8GYLSQ3UQ', '6a8a63dbe4fbab51d9948234030a22ca');
         var index = client.initIndex('RESTAURANTS');
         index.search(value1, function(err, result) {
-          renderSearchResults(result.hits,'Sscreen')
+          renderSearchResults(result.hits, 'Sscreen')
 
         });
 
@@ -749,277 +728,274 @@ p#intro2 {
     });
 
     $(document).ready(function() {
-     $('.dropdown-menu li a').click(function()  {
-
-
-        var value1= $(this).text();
+      $('.dropdown-menu li a').click(function() {
+        var value1 = $(this).text();
 
         var client = algoliasearch('U8GYLSQ3UQ', '6a8a63dbe4fbab51d9948234030a22ca');
         var index = client.initIndex('RESTAURANTS');
         index.search(value1, function(err, result) {
-          renderSearchResults(result.hits,'Big')
+          renderSearchResults(result.hits, 'Big')
 
         });
 
       });
     });
-
-
   </script>
 
 </head>
 
-
-
 <body onload="intialize();">
   <div id="bigScreen">
-  <nav class="navbar navbar-default" id="grad1">
-    <div class="container-fluid">
-      <div class="navbar-header" style="padding:0px;margin-top:0;">
-        <a class="navbar-brand" href="#"><img src="images/brand1.png"></a>
-      </div>
+    <nav class="navbar navbar-default" id="grad1">
+      <div class="container-fluid">
+        <div class="navbar-header" style="padding:0px;margin-top:0;">
+          <a class="navbar-brand" href="#"><img src="images/brand1.png"></a>
+        </div>
 
-      <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">
 
-        <li < style="margin-top:13px;"><span id="mainhead">NEW YORK'S A-ONE RESTAURANTS</span></li>
+          <li < style="margin-top:13px;"><span id="mainhead">NEW YORK'S A-ONE RESTAURANTS</span></li>
 
-        <li class="home"><a href="#" onclick="dispmain();">What a Grade Mean?</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size:16px;color:white;">Cuisine
+          <li class="home"><a href="#" onclick="dispmain();">What a Grade Mean?</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size:16px;color:white;">Cuisine
           <span class="caret"></span></a>
-          <ul class="dropdown-menu" id="items">
-            <li><a href="#" style="color:white"><span class="glyphicon glyphicon-glass">American</a></li>
-            <li class="divider"></li>
+            <ul class="dropdown-menu" id="items">
+              <li><a href="#" style="color:white"><span class="glyphicon glyphicon-glass">American</a></li>
+              <li class="divider"></li>
 
-            <li><a href="#"  style="color:white">Bakery</a></li>
-            <li class="divider"></li>
-            <li><a href="#"style="color:white" style="color:white">Bar </a></li>
-            <li class="divider"></li>
-            <li><a href="#" style="color:white">Chinese<span class="glyphicon glyphicon-glass"></a></li>
-            <li class="divider"></li>
-            <li><a href="#" style="color:white">French Food</a></li>
-            <li class="divider"></li>
-            <li><a href="#" style="color:white">Japanese</a></li>
-            <li class="divider"></li>
-            <li><a href="#" style="color:white"><span class="glyphicon glyphicon-glass">Indian</a></li>
-            <li class="divider"></li>
+              <li><a href="#" style="color:white">Bakery</a></li>
+              <li class="divider"></li>
+              <li><a href="#" style="color:white" style="color:white">Bar </a></li>
+              <li class="divider"></li>
+              <li><a href="#" style="color:white">Chinese<span class="glyphicon glyphicon-glass"></a></li>
+              <li class="divider"></li>
+              <li><a href="#" style="color:white">French Food</a></li>
+              <li class="divider"></li>
+              <li><a href="#" style="color:white">Japanese</a></li>
+              <li class="divider"></li>
+              <li><a href="#" style="color:white"><span class="glyphicon glyphicon-glass">Indian</a></li>
+              <li class="divider"></li>
 
-            <li><a href="#" style="color:white">Indonesian</a></li>
-            <li class="divider"></li>
-            <li><a href="#" style="color:white">Pizerria</a></li>
-            <li class="divider"></li>
-            <li><a href="#" style="color:white">Thai</a></li>
-
-
-
-          </ul>
-        </li>
+              <li><a href="#" style="color:white">Indonesian</a></li>
+              <li class="divider"></li>
+              <li><a href="#" style="color:white">Pizerria</a></li>
+              <li class="divider"></li>
+              <li><a href="#" style="color:white">Thai</a></li>
 
 
-      </ul>
+
+            </ul>
+          </li>
 
 
-      <form class="navbar-form navbar-left">
-        <div class="input-group" style="margin-top:13px;">
-          <input type="text" data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo" class="form-control" placeholder="Enter name or zipcode + Cusine or Cuisine..">
+        </ul>
 
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
+
+        <form class="navbar-form navbar-left">
+          <div class="input-group" style="margin-top:13px;">
+            <input type="text" data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo" class="form-control" placeholder="Enter name or zipcode + Cusine or Cuisine..">
+
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
               <i class="glyphicon glyphicon-search"></i>
             </button>
+            </div>
           </div>
+        </form>
+      </div>
+    </nav>
+    <div class="container-fluid" id="mainpage">
+      <div class="row">
+        <div id="Divsan" class="col-sm-12 col-md-3 col-xs-12 col-lg-3" id="mainpage-col1" style="padding-left:40px;">
+          <img src="/images/san.jpg" id="bigimg"><br>
+          <span id="san1">[Image from NYC-Health Dept.]</span><br><br>
+          <span class="label label-danger sanitary" id="san2" style="font-size:18px;">Look for above Certificate</span><span class="glyphicon glyphicon-hand-up"></span><br>
+
+
         </div>
-      </form>
-    </div>
-  </nav>
-  <div class="container-fluid" id="mainpage">
-    <div class="row">
-      <div id="Divsan" class="col-sm-12 col-md-3 col-xs-12 col-lg-3" id = "mainpage-col1" style="padding-left:40px;">
-        <img src="/images/san.jpg" id="bigimg"><br>
-        <span id="san1">[Image from NYC-Health Dept.]</span><br><br>
-        <span class="label label-danger sanitary" id="san2" style="font-size:18px;">Look for above Certificate</span><span class="glyphicon glyphicon-hand-up"></span><br>
+
+        <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6" id="rest" style="background-color:#414175;padding:20px;">
+          <p id="intro1"><strong><span style="font-size:20px">W</span>e</strong> bring you the finest of <i style="color:yellow;"> New York's 'A' graded Eateries </i> and variety of cuisine like Chinese, American, Thai, Indian, Italian, Sushi-Japanese and fast foods from Mcdonalds to Macron Bakeries and Coffee houses.
+            Simply search by Name of Restaurant or by zipcode or cuisine (viz Chinese, Indian, Thai ). You can also search by cusine + zipcode (enter cuisine space Zipcode) for places nearest to you.</p>
 
 
-      </div>
+           <p id="intro1">This website will display only 'A' graded Restaurants of New York city.
+            <i style="color:yellow;">Choose and enjoy only the best and Hygenic food.</i></p>
+          </p>
+          <h1 id="head1"> What Sanitary Inspection Grade mean..</h1>
+          <h2 id="head2">Grade 'A'</h2>
+          <p id="intro2">
+            A letter grade of 'A' indicates that a restaurant received 13 or fewer health code violations in their last inspection. Any recorded violations are likely to be technicalities or non-critical infractions, such as "Non-food contact surface improperly constructed;"
+            "Lighting inadequate;" or "Canned food product observed severely dented."
+          </p>
+          <h2 id="head2">Grade 'B'</h2>
+          <p id="intro2">
+            Points: 14 to 27 Violations: violations include "Cold food held above 41°F (smoked fish above 38°F) except during necessary preparation;" and "Sanitized equipment or utensil...improperly used or stored. The majority of NYC restaurants currently fall into
+            this category. At this level some of the violations are noted as 'Critical' by the Department of Health—common Critical "
+          </p>
+          <h2 id="head2">Grade 'C'</h2>
+          <p id="intro2">
+            A letter grade of 'C' indicates more than 28 health code violations. This is when things start to get pretty gross—and possibly dangerous. For instance, sanitation violations at this level sound like "Evidence of mice or live mice present in facility's
+            food and/or non-food areas;" "Hand washing facility not provided in or near food preparation area and toilet room;" or "Food item spoiled, adulterated, contaminated or cross-contaminated." At the moment, about 200 of the 473 inspected Manhattan
+            restaurants on the DOH website fit into the 'C' category.
+          </p>
+        </div>
 
-      <div class="col-sm-12 col-md-6 col-xs-12 col-lg-6" id="rest" style="background-color:#414175;padding:20px;">
-        <p id="intro1"><strong>We</strong> bring you the finest of <i>New York's 'A' certified</i> variety of restaurants and cuisine like Chinese, American, Thai, Indian, Italian, Sushi-Japanese and from fast foods like Macdonalds to Macron Bakeries and Coffee houses.
-          Simply search by Name of Restaurant or by zipcode or cuisine (viz Chinese, Indian, Thai ). You can also search by cusine and zipcode for places near you. This website will display only 'A' graded Restaurants of New York city.
-          <i>Choose and enjoy only the best food.</i>
-        </p>
-        <h1 id="head1"> What Sanitary Inspection Grade mean..</h1>
-        <h2 id="head2">Grade 'A'</h2>
-        <p id="intro2">
-          A letter grade of 'A' indicates that a restaurant received 13 or fewer health code violations in their last inspection. Any recorded violations are likely to be technicalities or non-critical infractions, such as "Non-food contact surface improperly constructed;"
-          "Lighting inadequate;" or "Canned food product observed severely dented."
-        </p>
-        <h2 id="head2">Grade 'B'</h2>
-        <p id="intro2">
-          Points: 14 to 27 Violations: violations include "Cold food held above 41°F (smoked fish above 38°F) except during necessary preparation;" and "Sanitized equipment or utensil...improperly used or stored. The majority of NYC restaurants currently fall into
-          this category. At this level some of the violations are noted as 'Critical' by the Department of Health—common Critical "
-        </p>
-        <h2 id="head2">Grade 'C'</h2>
-        <p id="intro2">
-          A letter grade of 'C' indicates more than 28 health code violations. This is when things start to get pretty gross—and possibly dangerous. For instance, sanitation violations at this level sound like "Evidence of mice or live mice present in facility's
-          food and/or non-food areas;" "Hand washing facility not provided in or near food preparation area and toilet room;" or "Food item spoiled, adulterated, contaminated or cross-contaminated." At the moment, about 200 of the 473 inspected Manhattan
-          restaurants on the DOH website fit into the 'C' category.
-        </p>
-      </div>
-
-      <div id="Divfork" class="col-sm-12 col-md-3 col-xs-12 col-lg-3" style="padding-left:60px;">
-        <img src="/images/fork.png"  id="bigimg2">
+        <div id="Divfork" class="col-sm-12 col-md-3 col-xs-12 col-lg-3" style="padding-left:60px;">
+          <img src="/images/fork.png" id="bigimg2">
+        </div>
       </div>
     </div>
-  </div>
 
 
 
-  <div class="container-fluid" id="firstpage" style="margin-top:140px;">
-    <div class="row">
+    <div class="container-fluid" id="firstpage" style="margin-top:140px;">
+      <div class="row">
 
-      <div class="col-sm-12 col-md-4 col-xs-12 col-lg-4" id="results">
-      </div>
-      <div class="col-sm-12 col-md-4 col-xs-12  col-lg-4" id="report">
-        <p id="grade"></p>
-        <p id="inspectionDate"></p>
+        <div class="col-sm-12 col-md-4 col-xs-12 col-lg-4" id="results">
+        </div>
+        <div class="col-sm-12 col-md-4 col-xs-12  col-lg-4" id="report">
+          <p id="grade"></p>
+          <p id="inspectionDate"></p>
 
 
-      </div>
-      <div class="col-sm-12 col-md-4 col-xs-12 col-lg-4">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-xs-12">
+        </div>
+        <div class="col-sm-12 col-md-4 col-xs-12 col-lg-4">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-xs-12">
 
-            <div class="panel panel-default" id="p" style="border-style:solid 2px, color black;">
-              <div class="panel-heading panelhead1" id="imgpanelhead" style="font-size:16px;font-weight:bold;color:maroon;"></div>
-              <div class="panel-body panelbody1" style="padding:0px;">
+              <div class="panel panel-default" id="p" style="border-style:solid 2px, color black;">
+                <div class="panel-heading panelhead1" id="imgpanelhead" style="font-size:16px;font-weight:bold;color:maroon;"></div>
+                <div class="panel-body panelbody1" style="padding:0px;">
 
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                  <!-- Indicators -->
-                  <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                  </ol>
+                  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
 
-                  <!-- Wrapper for slides -->
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <img src="images/japanese.jpg" alt="Japanese" style="width:100%;height:50%;">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="images/japanese.jpg" alt="Japanese" style="width:100%;height:50%;">
+                      </div>
+
+                      <div class="item">
+                        <img src="images/chinese.jpg" alt="Chicago" style="width:100%;height:50%;">
+                      </div>
+
+                      <div class="item">
+                        <img src="images/american.jpg" alt="New York" style="width:100%;height:50%;">
+                      </div>
                     </div>
 
-                    <div class="item">
-                      <img src="images/chinese.jpg" alt="Chicago" style="width:100%;height:50%;">
-                    </div>
-
-                    <div class="item">
-                      <img src="images/american.jpg" alt="New York" style="width:100%;height:50%;">
-                    </div>
-                  </div>
-
-                  <!-- Left and right controls -->
-                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left"></span>
               <span class="sr-only">Previous</span>
             </a>
-                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
               <span class="glyphicon glyphicon-chevron-right"></span><span><p>Get New York's A grade Eating Places..</p></span>
               <span class="sr-only">Next</span>
             </a>
+                  </div>
                 </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+
+              <div id="map" style="background-color:white;">
+
+                <img src="images/san.jpg" id="bigimg" styxle="width=300px;height:300px;margin-left:80px;margin-top:20px;">
+
+
               </div>
             </div>
 
           </div>
+          <div class="row">
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">Chinese</span></h4>
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">Thai food</span></h4>
 
-        </div>
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">American</span></h4>
 
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-xs-12 col-lg-12">
+            </div>
 
-            <div id="map" style="background-color:white;">
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">Macrons</span></h4>
 
-              <img src="images/san.jpg" id="bigimg" styxle="width=300px;height:300px;margin-left:80px;margin-top:20px;">
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+
+
+              <h4><span class="label label-default">Indian</span></h4>
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">Thai food</span></h4>
+
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">Noodles</span></h4>
+
+            </div>
+
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">C offee</span></h4>
+
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+
+
+              <h4><span class="label label-default">S ush i</span></h4>
+
+
 
 
             </div>
-          </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">Japanese</span></h4>
 
-        </div>
-        <div class="row">
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">Chinese</span></h4>
-          </div>
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">Thai food</span></h4>
+            </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">pizzeria</span></h4>
 
-          </div>
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">American</span></h4>
+            </div>
 
-          </div>
+            <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
+              <h4><span class="label label-default">Burgers</span></h4>
 
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">Macrons</span></h4>
-
-          </div>
-
-
-        </div>
-        <div class="row">
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-
-
-            <h4><span class="label label-default">Indian</span></h4>
-          </div>
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">Thai food</span></h4>
-
-          </div>
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">Noodles</span></h4>
-
-          </div>
-
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">C offee</span></h4>
-
-          </div>
-
-
-        </div>
-        <div class="row">
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-
-
-            <h4><span class="label label-default">S ush i</span></h4>
-
-
-
-
-          </div>
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">Japanese</span></h4>
-
-          </div>
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">pizzeria</span></h4>
-
-          </div>
-
-          <div class="col-sm-3 col-md-3 col-xs-3 col-lg-3">
-            <h4><span class="label label-default">Burgers</span></h4>
-
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <script>
     //EncrptPassword();
     function EncrptPassword() {
 
-     var salt = randomString()
+      var salt = randomString()
       pass = 'sajjad'
       alert('salt ' + salt)
       alert(sha256(pass));
@@ -1055,55 +1031,54 @@ p#intro2 {
 
       var value = event.target.value;
       index.search(value, function(err, result) {
-        renderSearchResults(result.hits,'Big')
+        renderSearchResults(result.hits, 'Big')
       })
     })
     var id = 0
 
-     function renderSearchResults(restaurants,ScreenType) {
-      var results;
+    function renderSearchResults(restaurants, ScreenType) {
+      var DisplayResults;
 
       var address;
-      if (ScreenType =="Big") {
+      if (ScreenType == "Big") {
         $('div#mainpage').hide();
-       $('div#firstpage').show();
-      results = document.getElementById('results');
+        $('div#firstpage').show();
+      DisplayResults = document.getElementById('results');
 
       } else {
-        results = document.getElementById('small-details-2');
+        DisplayResults= document.getElementById('small-details-2');
 
-        }
+      }
 
-      results.innerHTML = " ";
+      DisplayResults.innerHTML = " ";
       restaurants.forEach(function(restaurant) {
         var phone = phoneNo(restaurant.phone)
         var id = restaurant.camis
-        results.insertAdjacentHTML('beforeend', '<div class="panel panel-default" style="padding-left:0;padding-right:0;padding:0;">' +
+        DisplayResults.insertAdjacentHTML('beforeend', '<div class="panel panel-default" style="padding-left:0;padding-right:0;padding:0;">' +
 
           '<div class="panel-heading  panelhead2" class= "res-main" style:border:0;"><p id="n" class="res-name"><span class="glyphicon glyphicon-glass"></span>' + restaurant.name + '</p></div>' +
 
           '<div class="panel-body panelbody2">' + '<div class="row">' +
 
           '<div class ="res-street"><p class="street">' + 'Cuisine: ' + restaurant.cuisineDescription + '</p></div>' +
-          '<div class ="res-street"><p class="street">' +  restaurant.building + ","  + '  ' + restaurant.street + '<br>' +
+          '<div class ="res-street"><p class="street">' + restaurant.building + "," + '  ' + restaurant.street + '<br>' +
           'zipcode: ' + restaurant.zipCode + '<br>' +
           'Phone: ' + phone + '</p></div></div></div></div>' +
 
-          '<div class="row" id="grad1" style="width:98%;vertical-align:center;border: 3px solid orange;height:50px;"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn pull-right btn-danger btn-sm"   onclick="getReport('+
-          "'" + id + "'" + "," + "'" + ScreenType + "'" + "," + "'" + 2017 + "'" +');onmouseup=this.blur();" id="but2017">2017</button>' +
-          '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn pull-left btn-danger btn-sm" style="width:auto;" onclick="getReport('+
-          "'" + id + "'" + "," + "'" + ScreenType + "'" + "," + "'" + 2016 + "'" +'); onmouseup=this.blur();" id="but2016">2016</button></div></div>')
+          '<div class="row" id="grad1" style="width:98%;vertical-align:center;border: 3px solid orange;height:50px;"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn pull-right btn-danger btn-sm"   onclick="getReport(' +
+          "'" + id + "'" + "," + "'" + ScreenType + "'" + "," + "'" + 2017 + "'" + ');onmouseup=this.blur();" id="but2017">2017</button>' +
+          '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn pull-left btn-danger btn-sm" style="width:auto;" onclick="getReport(' +
+          "'" + id + "'" + "," + "'" + ScreenType + "'" + "," + "'" + 2016 + "'" + '); onmouseup=this.blur();" id="but2016">2016</button></div></div>')
 
         var myid = id.toString()
 
-        results.insertAdjacentHTML('beforeend', '<p id=' + '"' + myid + '"' + '></p>')
+        DisplayResults.insertAdjacentHTML('beforeend', '<p id=' + '"' + myid + '"' + '></p>')
 
       });
 
     }
 
-    function getReport(id,ScreenType,gDate)
-      {
+    function getReport(id, ScreenType, gDate) {
       var Scr = ScreenType
       var vDate = parseInt(gDate)
       var DispScr
@@ -1112,90 +1087,82 @@ p#intro2 {
       promise.then(suceeded, failed);
 
       function suceeded(result) {
-      var details = JSON.parse(result);
+        var details = JSON.parse(result);
 
 
-      if (Scr =="Big") {
-      DispScr = document.getElementById('report');
-      DispMap = document.getElementById('map')
-      }else {
-      DispScr = document.getElementById('Small-Report')
-     DispMap = document.getElementById('small-Map')
-            }
-
-
-      DispScr.innerHTML = ""
-      var vgrade = "";
-      var vname = "";
-      var phone = phoneNo(details.phone)
-      document.getElementById("imgpanelhead").innerHTML = "Location-MAP"
-      //report.insertAdjacentHTML('beforeend', '<p id="img>"')
-      details.inspections.forEach(function(detail) {
-        var y = new Date(detail.inspectionDate);
-        y = y.getFullYear();
-
-        if (vname == "" & detail.name !== "") {
-
-
-          DispScr.insertAdjacentHTML('beforeend', '<p class="name2" id="name2" style="text-align:left;">' + details.name + '</p><img src="./fork2.png" style="width=80px;height:80px;"></p>')
-          DispScr.insertAdjacentHTML('beforeend', '<p class="cusine" style="font-size:20px;font-style:normal;text-align:left;">' + "Cuisine: " + details.cuisineDescription + '</p>')
-          DispScr.insertAdjacentHTML('beforeend', '<p class="street" style="font-style:normal;text-align:left">' + "Address: " + details.building + ", " + details.street + '</p>')
-          DispScr.insertAdjacentHTML('beforeend', '<p class="zipcode" style="font-style:normal;text-align:left">' + "zipcode: " + details.zipCode + ", " + phone + '</p>')
-
-
-          vname = detail.name;
-
+        if (Scr == "Big") {
+          DispScr = document.getElementById('report');
+          DispMap = document.getElementById('map')
+        } else {
+          DispScr = document.getElementById('Small-Report')
+          DispMap = document.getElementById('small-Map')
         }
-        if (y === vDate) {
 
 
-          if (vgrade == "" & detail.grade !== "") {
-            DispScr.insertAdjacentHTML('beforeend', '<p class="grade">' + detail.grade + '</p>')
-            vgrade = detail.grade
+        DispScr.innerHTML = ""
+        var vgrade = "";
+        var vname = "";
+        var phone = phoneNo(details.phone)
+        document.getElementById("imgpanelhead").innerHTML = "Location-MAP"
+        //report.insertAdjacentHTML('beforeend', '<p id="img>"')
+        details.inspections.forEach(function(detail) {
+          var y = new Date(detail.inspectionDate);
+          y = y.getFullYear();
+
+          if (vname == "" & detail.name !== "") {
+
+
+            DispScr.insertAdjacentHTML('beforeend', '<p class="name2" id="name2" style="text-align:left;">' + details.name + '</p><img src="./fork2.png" style="width=80px;height:80px;"></p>')
+            DispScr.insertAdjacentHTML('beforeend', '<p class="cusine" style="font-size:20px;font-style:normal;text-align:left;">' + "Cuisine: " + details.cuisineDescription + '</p>')
+            DispScr.insertAdjacentHTML('beforeend', '<p class="street" style="font-style:normal;text-align:left">' + "Address: " + details.building + ", " + details.street + '</p>')
+            DispScr.insertAdjacentHTML('beforeend', '<p class="zipcode" style="font-style:normal;text-align:left">' + "zipcode: " + details.zipCode + ", " + phone + '</p>')
+
+
+            vname = detail.name;
+
           }
-          // format the date in javascript
-
-          var formattedDate = new Date(detail.inspectionDate);
-          var d = formattedDate.getDate();
-          var m = formattedDate.getMonth();
-          m += 1; // JavaScript months are 0-11
-          var y = formattedDate.getFullYear();
-
-          formattedDate = d + "/" + m + "/" + y;
-          DispScr.insertAdjacentHTML('beforeend', '<p id ="inspectionDate">' + formattedDate + '</p>')
-          DispScr.insertAdjacentHTML('beforeend', '<p id="action">' + detail.action + '</p>')
-          DispScr.insertAdjacentHTML('beforeend', '<p class="violationCode">' + detail.violationCode + '</p>')
-          DispScr.insertAdjacentHTML('beforeend', '<p id ="inspectionType">' + detail.inspectionType + '</p>')
-          //report.insertAdjacentHTML('beforeend', '<p class ="address" id ="addr">' + details.street + '</p>')
-          DispScr.insertAdjacentHTML('beforeend', '<hr class="hrline">')
-
-        }
-      });
-      var address = details.building + " " + details.name + ", " + details.street + ", NY" + ", " + details.zipCode
-
-      reloadMap(address,DispMap);
-      $(document).ready(function() {
-        $(DispScr).css('display','block');
-        $(DispMap).css('display','block');
-        $(".name2").fadeOut(4000);
-        $(".name2").fadeIn(4000);
-      $("#small-details-2").slideToggle("slow");
-      $("#flip").css('display','block')
+          if (y === vDate) {
 
 
+            if (vgrade == "" & detail.grade !== "") {
+              DispScr.insertAdjacentHTML('beforeend', '<p class="grade">' + detail.grade + '</p>')
+              vgrade = detail.grade
+            }
+            // format the date in javascript
 
+            var formattedDate = new Date(detail.inspectionDate);
+            var d = formattedDate.getDate();
+            var m = formattedDate.getMonth();
+            m += 1; // JavaScript months are 0-11
+            var y = formattedDate.getFullYear();
 
-      //$(DispScr).css('left',0)
-      //$(DispScr).css('top',0)
+            formattedDate = d + "/" + m + "/" + y;
+            DispScr.insertAdjacentHTML('beforeend', '<p id ="inspectionDate">' + formattedDate + '</p>')
+            DispScr.insertAdjacentHTML('beforeend', '<p id="action">' + detail.action + '</p>')
+            DispScr.insertAdjacentHTML('beforeend', '<p class="violationCode">' + detail.violationCode + '</p>')
+            DispScr.insertAdjacentHTML('beforeend', '<p id ="inspectionType">' + detail.inspectionType + '</p>')
+            //report.insertAdjacentHTML('beforeend', '<p class ="address" id ="addr">' + details.street + '</p>')
+            DispScr.insertAdjacentHTML('beforeend', '<hr class="hrline">')
 
+          }
+        });
+        var address = details.building + " " + details.name + ", " + details.street + ", NY" + ", " + details.zipCode
 
+        reloadMap(address, DispMap);
+        $(document).ready(function() {
+          $(DispScr).css('display', 'block');
+          $(DispMap).css('display', 'block');
+          $(".name2").fadeOut(4000);
+          $(".name2").fadeIn(4000);
+          //($(DispScr) == "div#Small-Report")
+          $("#small-details-2").slideToggle("slow");
+          $("#flip").css('display', 'block')
+          $("html,body").scrollTop($(DispScr).offset(findPos(DispScr)));
 
-$("html,body").scrollTop($(DispScr).offset(findPos(DispScr)));
+        });
 
-      });
-
-}
-}
+      }
+    }
 
 
     function failed(error) {
@@ -1237,9 +1204,9 @@ $("html,body").scrollTop($(DispScr).offset(findPos(DispScr)));
       });
     }
 
-    function reloadMap(street,DispMap) {
+    function reloadMap(street, DispMap) {
 
-      var map = new google.maps.Map(DispMap , {
+      var map = new google.maps.Map(DispMap, {
         zoom: 18,
         center: {
           lat: -34.397,
@@ -1297,71 +1264,75 @@ $("html,body").scrollTop($(DispScr).offset(findPos(DispScr)));
     }
   </script>
 
+  <div id="SmlScreenContainer">
+    <div id="smallScreen">
+      <div id="DivHeader">
 
- <div id="smallScreen">
-  <div id="DivHeader">
+        <div id="DivLogo">
 
-  			<div id="DivLogo">
+          <span class="Logo" id="SpLogo">NY EATERY</span><br/>
+          <span class="Logo" id="SpSlogan">A-GRADE</span>
 
-  			<span class="Logo" id="SpLogo">NY EATERY</span><br/>
-  			<span class="Logo" id="SpSlogan">A-GRADE</span>
+        </div>
 
-  			</div>
+        <div id="DivPrabhu">
+          <a href="#">What grade mean?</a>
+        </div>
 
-  			<div id="DivPrabhu">
-  				<a  href="#">What grade mean?</a>
-  			</div>
+      </div>
 
-  		</div>
+      <div id="DivMain">
+        <div class="input-group">
+          <input type="text" data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo1" class="form-control" placeholder="Enter name or zipcode + Cusine or Cuisine..">
 
-  		<div id="DivMain">
-            <div class="input-group">
-             <input type="text" data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo1" class="form-control" placeholder="Enter name or zipcode + Cusine or Cuisine..">
-
-             <div class="input-group-btn">
-               <button class="btn btn-default" type="submit">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
                  <i class="glyphicon glyphicon-search"></i>
                </button>
-             </div>
-           </div>
+          </div>
+        </div>
 
-       </div>
-  <div id="list">
-   <nav-small>
-   <a class="burger-nav" href="#">Cuisines</a>
-  <ul>
-     <li><a href="#">American</a></li>
-     <li><a href="#">Chinese</a></li>
-     <li><a href="#">Indian</a></li>
-     <li><a href="#">Japanese</a></li>
-     <li><a href="#">Pizza</a></li>
-     <li><a href="#">Thai</a></li>
-     <li><a href="#">Turkish</a></li>
-     <li><a href="#">Afghan</a></li>
-     <li><a href="#">French</a></li>
+      </div>
+      <div id="list">
+        <nav-small>
+          <a href="#" class="btn btn-info btn-lg burger-nav">
+                    <span class="glyphicon glyphicon-th-list"></span>
+                  </a>
+          <ul>
+            <li><a href="#">American</a></li>
+            <li><a href="#">Chinese</a></li>
+            <li><a href="#">Indian</a></li>
+            <li><a href="#">Japanese</a></li>
+            <li><a href="#">Pizza</a></li>
+            <li><a href="#">Thai</a></li>
+            <li><a href="#">Turkish</a></li>
+            <li><a href="#">Afghan</a></li>
+            <li><a href="#">French</a></li>
 
-<ul>
-  </nav-small>
+            <ul>
+        </nav-small>
+      </div>
+    </div>
+
+    <div id="small-details" style="padding-top:200px;">
+
+    </div>
+    <div id="flip">
+      <button class="btn-primary btn btn-sm tap" id="butTap">Open/Close Items</button>
+    </div>
+
+    <div id="small-details-2">
+
+    </div>
+
+    <div id="Small-Report">
+
+    </div>
+    <div id="small-Map">
+
+
+    </div>
   </div>
-</div>
-<div id="small-details" style="padding-top:200px;">
-
-</div>
-<div id="flip">
-<button class="btn-primary btn btn-sm tap">Open/Close Items</button>
-</div>
-
-<div id="small-details-2" >
-
-</div>
-
-<div id="Small-Report">
-
-</div>
-<div id="small-Map">
-
-
-</div>
 
 </body>
 
