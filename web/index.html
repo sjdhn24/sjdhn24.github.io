@@ -140,6 +140,14 @@ display: none;
       padding-right: 0px;
     }
 
+.grade {
+font-size:18px
+font-family: helvetica,Arial,sans-serif;
+color:green;
+text-shadow: 2px 2px 8px #FF0000;
+
+}
+
     .res-name {
       color:#daef17;
       font-family: cursive,veradana,sans-serif;
@@ -335,6 +343,7 @@ display: none;
   }
 
 
+
   @media screen and (min-width: 770px) {
     #todo {
       width: 450px;
@@ -483,15 +492,23 @@ display: none;
 }
 #smallScreen {
 display:block;
+position:fixed;
 }
 
+div#smallScreen {
+
+z-index: 999;
+}
+
+div#flip {
+padding-top:200px;
+
+}
 #small-Report {
 padding: 5px;
 
 
 }
-
-
 #DivHeader
 {
 position:relative;
@@ -578,6 +595,11 @@ height:50px;
 
 
 }
+
+
+
+
+
 .input-group {
 padding: 10px;
 }
@@ -627,7 +649,7 @@ p#intro2 {
     $(".tap").click(function(){
     $("#small-details-2").slideToggle("slow");
 
-    $(".tap").text('Close Items')
+
 
 //   $("#small-details-2").css('display','block');
         //  $("#small-details-2").slideDown();
@@ -713,7 +735,7 @@ p#intro2 {
        $('#Small-Report').css('display','none');
        $('#small-details').css('display','none');
        $('#small-Map').css('display','none')
-       $('#flip').css('display','none');
+       $('#flip').css('display','block');
          var value1 = $(this).text();
 
         var client = algoliasearch('U8GYLSQ3UQ', '6a8a63dbe4fbab51d9948234030a22ca');
@@ -996,7 +1018,8 @@ p#intro2 {
   <script>
     //EncrptPassword();
     function EncrptPassword() {
-      var salt = randomString()
+
+     var salt = randomString()
       pass = 'sajjad'
       alert('salt ' + salt)
       alert(sha256(pass));
@@ -1067,8 +1090,10 @@ p#intro2 {
           'Phone: ' + phone + '</p></div></div></div></div>' +
 
           '<div class="row" id="grad1" style="width:98%;vertical-align:center;border: 3px solid orange;height:50px;"><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  style="width:auto;" class="btn pull-right btn-danger btn-sm"   onclick="getReport('+
-          "'" + id + "'" + "," + "'" + ScreenType + "'" + ');onmouseup=this.blur();" id="but2017">2017</button>' +
-          '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn pull-left btn-danger btn-sm" style="width:auto;">2016</button></div></div>')
+          "'" + id + "'" + "," + "'" + ScreenType + "'" + "," + "'" + 2017 + "'" +');onmouseup=this.blur();" id="but2017">2017</button>' +
+          '</div><div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><button  class="btn pull-left btn-danger btn-sm" style="width:auto;" onclick="getReport('+
+          "'" + id + "'" + "," + "'" + ScreenType + "'" + "," + "'" + 2016 + "'" +'); onmouseup=this.blur();" id="but2016">2016</button></div></div>')
+
         var myid = id.toString()
 
         results.insertAdjacentHTML('beforeend', '<p id=' + '"' + myid + '"' + '></p>')
@@ -1077,15 +1102,18 @@ p#intro2 {
 
     }
 
-    function getReport(id,ScreenType)
+    function getReport(id,ScreenType,gDate)
       {
       var Scr = ScreenType
+      var vDate = parseInt(gDate)
       var DispScr
       var DispMap
       let promise = getdata(id);
       promise.then(suceeded, failed);
-    function suceeded(result) {
+
+      function suceeded(result) {
       var details = JSON.parse(result);
+
 
       if (Scr =="Big") {
       DispScr = document.getElementById('report');
@@ -1093,7 +1121,7 @@ p#intro2 {
       }else {
       DispScr = document.getElementById('Small-Report')
      DispMap = document.getElementById('small-Map')
-}
+            }
 
 
       DispScr.innerHTML = ""
@@ -1116,8 +1144,9 @@ p#intro2 {
 
 
           vname = detail.name;
+
         }
-        if (y === 2017) {
+        if (y === vDate) {
 
 
           if (vgrade == "" & detail.grade !== "") {
@@ -1148,25 +1177,25 @@ p#intro2 {
       $(document).ready(function() {
         $(DispScr).css('display','block');
         $(DispMap).css('display','block');
-
-
-
         $(".name2").fadeOut(4000);
         $(".name2").fadeIn(4000);
-        $("html, body").scrollTop($("#DivHeader").offset().top);
-
       $("#small-details-2").slideToggle("slow");
       $("#flip").css('display','block')
 
-     $('.tap').text('Open Search Items');
 
 
+
+      //$(DispScr).css('left',0)
+      //$(DispScr).css('top',0)
+
+
+
+$("html,body").scrollTop($(DispScr).offset(findPos(DispScr)));
 
       });
 
-
-
-    } }
+}
+}
 
 
     function failed(error) {
@@ -1312,22 +1341,25 @@ p#intro2 {
      <li><a href="#">French</a></li>
 
 <ul>
-  <nav>
+  </nav-small>
   </div>
-<div id="small-details">
-
 </div>
-<div id="small-details-2">
+<div id="small-details" style="padding-top:200px;">
 
 </div>
 <div id="flip">
-<button class="btn-primary btn btn-sm tap">Open Search Items</button>
+<button class="btn-primary btn btn-sm tap">Open/Close Items</button>
+</div>
+
+<div id="small-details-2" >
+
 </div>
 
 <div id="Small-Report">
 
 </div>
 <div id="small-Map">
+
 
 </div>
 
