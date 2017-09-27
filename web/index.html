@@ -16,13 +16,7 @@
   <script src="bower_components/cookie/cookie.min.js"></script>
   <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
   <script src="/sha256/src/sha256.js"></script>
-
-
-
-
-
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjMb6Od7hkOybPXNxnzI_rhbQMKJErHxo"></script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjMb6Od7hkOybPXNxnzI_rhbQMKJErHxo"></script>
 
   <style>
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
@@ -132,9 +126,10 @@
     }
 
     .grade {
-      font-size: 18px font-family: helvetica, Arial, sans-serif;
-      color: green;
-      text-shadow: 2px 2px 8px #FF0000;
+      font-size: 30px;
+      font-family: helvetica, Arial, sans-serif;
+      color: #4286f4;
+      text-shadow: 2px 2px 8px black;
     }
 
     .res-name {
@@ -222,13 +217,6 @@
 
 
 
-      .grade {
-        font-size: 50px;
-        font-family: fantasy;
-        font-weight: 80px;
-        color: maroon;
-        text-shadow: 2px 2px 8px #FF0000;
-      }
 
       .violationCode {
         font-size: 40px;
@@ -245,6 +233,7 @@
       font-family: sans-serif;
       font-weight: 40px;
       color: maroon;
+
     }
 
     .navbar-inverse {
@@ -335,6 +324,13 @@
       #todo {
         width: 450px;
         border: 1px solid orange;
+      }
+      h1#head1 {
+        color: #ef6a45;
+        font-weight: 100;
+        font-family: Helvetica, sans-serif;
+        text-shadow: 5px 5px 10px black;
+        letter-spacing: 1px;
       }
 
      div#firstpage {display: none;}
@@ -439,13 +435,7 @@
       letter-spacing: 1px;
     }
 
-    h1#head1 {
-      color: #ef6a45;
-      font-weight: 100;
-      font-family: font-family: Helvetica, sans-serif;
-      text-shadow: 5px 5px 10px black;
-      letter-spacing: 1px;
-    }
+
 
     .sanitary {
       font-size: 18px;
@@ -475,7 +465,6 @@
       margin-right: auto;
     }
     /* mobile start */
-
     @media screen and (max-width:1369px) {
       html,
       body {
@@ -484,6 +473,7 @@
         background-color: white;
         margin-top: 0;
       }
+
 
      #bigScreen {
     display:none;
@@ -503,9 +493,11 @@
 
       div#smallScreen {
 
+
         z-index: 999;
       }
-      #small-Report {
+      #Small-Report {
+       top:240px
         padding: 5px;
       }
       #DivHeader {
@@ -540,22 +532,26 @@
 
       #SpLogo {
 
-        font-size: 35px;
+        font-size: 25px;
         font-weight: bold;
       }
 
       #SpSlogan {
-        font-size: 20px;
+      margin-left: 5px;
+        font-size: 14px;
+font-style: oblique;
+  color: "yellow"
+
       }
       #flip {
-        positon.fixed;
         padding: 5px;
-        padding-top: 200px;
         text-align: center;
         background-color: #e5eecc;
         border: solid 1px #c3c3c3;
         width: 100%;
         display: none;
+
+        z-index: 2;
       }
 
       #DivPrabhu {
@@ -576,6 +572,21 @@
 
       #DivPrabhu a:hover {
         text-decoration: none;
+      }
+      div#InsideBox
+       {
+        -webkit-box-shadow: 10px 10px 5px #888888;
+        -moz-box-shadow: 10px 10px 5px #888888;
+        box-shadow: 10px 10px 5px #888888;
+      }
+
+         h1#head1 {
+        color: #ef6a45;
+        font-weight:normal;
+        font-family: Helvetica, sans-serif;
+        font-size: 20px;
+        letter-spacing: 1px;
+      text-shadow: 5px 5px 10px black;
       }
 
       #DivMain {
@@ -699,8 +710,6 @@
         $('#small-details').css('display', 'block');
         $('#small-Map').css('display', 'none')
         $('#flip').css('display', 'none');
-
-
         $('#mainpage .row #rest').clone().appendTo('#small-details');
 
         $('nav-small ul').removeClass("open");
@@ -794,7 +803,7 @@
 
         <form class="navbar-form navbar-left">
           <div class="input-group" style="margin-top:13px;">
-            <input type="text" data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo" class="form-control" placeholder="Enter name or zipcode + Cusine or Cuisine..">
+            <input type="text" data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo" class="form-control inputs" placeholder="Enter name or zipcode + Cusine or Cuisine..">
 
             <div class="input-group-btn">
               <button class="btn btn-default" type="submit">
@@ -1023,20 +1032,53 @@
 
     var client = algoliasearch('U8GYLSQ3UQ', '6a8a63dbe4fbab51d9948234030a22ca');
     var index = client.initIndex('RESTAURANTS');
-    var textBox = document.getElementById("todo");
-    var resultsView = document.getElementById('results');
-
-    textBox.addEventListener('keyup', function(event) {
+    var textBox
+    var Screen = "Sscreen"
 
 
-      var value = event.target.value;
-      index.search(value, function(err, result) {
-        renderSearchResults(result.hits, 'Big')
-      })
-    })
-    var id = 0
+     //alert(e.target.id)
 
-    function renderSearchResults(restaurants, ScreenType) {
+      $(function () {
+          $(".inputs").click(function (e) {
+               //alert(e.target.id);
+               textBox = document.getElementById(e.target.id);
+               var resultsView = document.getElementById('results');
+
+
+               var id = 0
+  if(e.target.id=="todo") {
+            Screen = 'Big'  }else {
+            $('#small-details').css('display','none');
+            $('#small-details-2').css('display','block');
+            $('#flip').css('display','block');
+
+             }
+
+
+////
+textBox.addEventListener('keyup', function(event) {
+
+
+  var value = event.target.value;
+  index.search(value, function(err, result) {
+    renderSearchResults(result.hits, Screen)
+  })
+  })
+
+
+
+
+
+
+
+///////
+
+          });
+      });
+
+
+
+        function renderSearchResults(restaurants, ScreenType) {
       var DisplayResults;
 
       var address;
@@ -1125,9 +1167,18 @@
 
 
             if (vgrade == "" & detail.grade !== "") {
-              DispScr.insertAdjacentHTML('beforeend', '<p class="grade">' + detail.grade + '</p>')
+
+            if(detail.grade=="A") {
+              DispScr.insertAdjacentHTML('beforeend', '<p class="grade"><img src="images/san.jpg" style="width:60px;height:80px;border:1px solid red;"></p>')
+
+            }else {
+
+            DispScr.insertAdjacentHTML('beforeend', '<p class="grade">' + detail.grade + '</p>')
+            }
               vgrade = detail.grade
             }
+
+
             // format the date in javascript
 
             var formattedDate = new Date(detail.inspectionDate);
@@ -1265,13 +1316,13 @@
   </script>
 
   <div id="SmlScreenContainer">
-    <div id="smallScreen">
+    <div id="smallScreen" >
       <div id="DivHeader">
 
         <div id="DivLogo">
 
-          <span class="Logo" id="SpLogo">NY EATERY</span><br/>
-          <span class="Logo" id="SpSlogan">A-GRADE</span>
+          <span class="Logo" id="SpLogo"><img src="images/brand1.png"> NEW YORK EATERIES</span><br/>
+          <span class="Logo" id="SpSlogan">    A GRADE ONLY</span>
 
         </div>
 
@@ -1283,7 +1334,7 @@
 
       <div id="DivMain">
         <div class="input-group">
-          <input type="text" data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo1" class="form-control" placeholder="Enter name or zipcode + Cusine or Cuisine..">
+          <input type="text"  data-toggle="tooltip" data-placement="bottom" title="Type Name or Zipcode or Cuisine.." autocomplete="off" id="todo-small" class="form-control inputs" placeholder="Enter name or zipcode + Cusine or Cuisine..">
 
           <div class="input-group-btn">
             <button class="btn btn-default" type="submit">
@@ -1308,24 +1359,35 @@
             <li><a href="#">Turkish</a></li>
             <li><a href="#">Afghan</a></li>
             <li><a href="#">French</a></li>
-
             <ul>
+
         </nav-small>
+
+
+      </div>
+      <div id="flip">
+        <button class="btn-primary btn btn-sm tap" id="butTap">Open / Close Items</button>
       </div>
     </div>
 
-    <div id="small-details" style="padding-top:200px;">
+    <div id="small-details" style="padding-top:198px; padding-bottom:12px;background-color:orange;">
+
+      <center><div class="input-group" id="InsideBox" style="margin-top:20px;margin-bottom:20px;vertical-align:center;border:2px solid red;background-color:lightblue;width:50%;height:50px;"><img src="images/san.jpg" style="width:55px;height:75px;border:1px solid black;"><br> <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-hand-up"></span>Watch for this!
+        </button>
+
+      </a></div></center>
+
+
+
+      </div>
+
+
+    <div id="small-details-2" style="padding-top:240px">
 
     </div>
-    <div id="flip">
-      <button class="btn-primary btn btn-sm tap" id="butTap">Open/Close Items</button>
-    </div>
 
-    <div id="small-details-2">
-
-    </div>
-
-    <div id="Small-Report">
+    <div id="Small-Report" style="padding-top:240px;">
 
     </div>
     <div id="small-Map">
