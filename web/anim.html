@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    function anim() {
+        $("#anim").animate({left: '250px'},8000);
+        $("#anim").animate({left: '10px'},8000);
+    };
+
+
+</script>
+</head>
+<body>
+
+<button>Start Animation</button>
+
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+<div class="anim1"  style="background:#98bf21;height:20px;width:100px; color:yellow;font-weight:bold;position:relative;"> Click here</div>
+<div class="anim1" style="background:#98bf21;height:20px;width:100px; color:yellow;font-weight:bold;position:relative;"> Click here</div>
+
+<script>
+
+    function moveTruck(){
+        $(".anim1").animate(
+            {'left': '90px'},
+            4500, // Animation-duration
+            function(){
+              $(".anim1").animate(
+                  {'left': '10px'},
+                  4500) // Animation-duratio
+                moveTruck();
+            });
+        }
+
+moveTruck();
+//moveTruck('#anim2');
+//moveTruck();
+
+
+</script>
+</body>
+</html>
